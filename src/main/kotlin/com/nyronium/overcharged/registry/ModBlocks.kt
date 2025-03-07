@@ -1,0 +1,45 @@
+package com.nyronium.overcharged.registry
+
+import com.nyronium.overcharged.Overcharged
+import net.minecraft.util.valueproviders.UniformInt
+import net.minecraft.world.item.BlockItem
+import net.minecraft.world.item.Item
+import net.minecraft.world.level.block.Block
+import net.minecraft.world.level.block.DropExperienceBlock
+import net.minecraft.world.level.block.state.BlockBehaviour
+import net.minecraftforge.registries.DeferredRegister
+import net.minecraftforge.registries.ForgeRegistries
+import net.minecraftforge.registries.RegistryObject
+import java.util.function.Supplier
+
+
+object ModBlocks {
+    val BLOCKS: DeferredRegister<Block> = DeferredRegister.create(ForgeRegistries.BLOCKS, Overcharged.ID)
+
+    val ALUMINUM_ORE = registerBlock("aluminum_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(4.5f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val DEEPSLATE_ALUMINUM_ORE = registerBlock("deepslate_aluminum_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(6f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val LITHIUM_ORE = registerBlock("lithium_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val DEEPSLATE_LITHIUM_ORE = registerBlock("deepslate_lithium_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(4.5f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val MINERAL_COMPOUND_ORE = registerBlock("mineral_compound_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(2f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val DEEPSLATE_MINERAL_COMPOUND_ORE = registerBlock("deepslate_mineral_compound_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(3.5f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val NICKEL_ORE = registerBlock("nickel_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val DEEPSLATE_NICKEL_ORE = registerBlock("deepslate_nickel_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(4.5f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val SILICON_ORE = registerBlock("silicon_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(1.5f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val DEEPSLATE_SILICON_ORE = registerBlock("deepslate_silicon_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val TITANIUM_ORE = registerBlock("titanium_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(8f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val DEEPSLATE_TITANIUM_ORE = registerBlock("deepslate_titanium_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(9.5f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val URANIUM_ORE = registerBlock("uranium_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(5f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val DEEPSLATE_URANIUM_ORE = registerBlock("deepslate_uranium_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(6.5f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val ZINC_ORE = registerBlock("zinc_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(1.5f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+    val DEEPSLATE_ZINC_ORE = registerBlock("deepslate_zinc_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
+
+    private fun <T : Block> registerBlock(name: String, block: Supplier<T>): RegistryObject<T> {
+        val registeredBlock = BLOCKS.register(name, block)
+        registerBlockItem(name, registeredBlock)
+        return registeredBlock
+    }
+
+    private fun <T : Block> registerBlockItem(name: String, block: RegistryObject<T>): RegistryObject<Item> {
+        return ModItems.ITEMS.register(name) { BlockItem(block.get(), Item.Properties()) }
+    }
+}
