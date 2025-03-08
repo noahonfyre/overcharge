@@ -38,7 +38,7 @@ object ModPlacedFeatures {
         register(
             context,
             LITHIUM_ORE_PLACED_KEY,
-            configuredFeatures.getOrThrow(ModConfiguredFeatures.ALUMINUM_ORE_KEY),
+            configuredFeatures.getOrThrow(ModConfiguredFeatures.LITHIUM_ORE_KEY),
             ModOrePlacement.commonOrePlacement(
                 12,
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(319))
@@ -65,9 +65,9 @@ object ModPlacedFeatures {
         register(
             context,
             SILICON_ORE_PLACED_KEY,
-            configuredFeatures.getOrThrow(ModConfiguredFeatures.NICKEL_ORE_KEY),
-            ModOrePlacement.rareOrePlacement(
-                50,
+            configuredFeatures.getOrThrow(ModConfiguredFeatures.SILICON_ORE_KEY),
+            ModOrePlacement.commonOrePlacement(
+                4,
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(319))
             )
         )
@@ -75,7 +75,7 @@ object ModPlacedFeatures {
             context,
             TITANIUM_ORE_PLACED_KEY,
             configuredFeatures.getOrThrow(ModConfiguredFeatures.TITANIUM_ORE_KEY),
-            ModOrePlacement.rareOrePlacement(
+            ModOrePlacement.commonOrePlacement(
                 1,
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(319))
             )
@@ -84,8 +84,8 @@ object ModPlacedFeatures {
             context,
             URANIUM_ORE_PLACED_KEY,
             configuredFeatures.getOrThrow(ModConfiguredFeatures.URANIUM_ORE_KEY),
-            ModOrePlacement.rareOrePlacement(
-                25,
+            ModOrePlacement.commonOrePlacement(
+                2,
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(319))
             )
         )
@@ -93,8 +93,8 @@ object ModPlacedFeatures {
             context,
             ZINC_ORE_PLACED_KEY,
             configuredFeatures.getOrThrow(ModConfiguredFeatures.ZINC_ORE_KEY),
-            ModOrePlacement.rareOrePlacement(
-                75,
+            ModOrePlacement.commonOrePlacement(
+                6,
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(319))
             )
         )
