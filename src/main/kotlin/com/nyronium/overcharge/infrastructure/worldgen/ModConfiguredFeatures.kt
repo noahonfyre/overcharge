@@ -1,7 +1,7 @@
-package com.nyronium.overcharged.infrastructure.worldgen
+package com.nyronium.overcharge.infrastructure.worldgen
 
-import com.nyronium.overcharged.Overcharged
-import com.nyronium.overcharged.registry.ModBlocks
+import com.nyronium.overcharge.Overcharge
+import com.nyronium.overcharge.registry.ModBlocks
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.worldgen.BootstapContext
 import net.minecraft.resources.ResourceKey
@@ -28,7 +28,6 @@ object ModConfiguredFeatures {
     val SILICON_ORE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("silicon_ore")
     val TITANIUM_ORE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("titanium_ore")
     val URANIUM_ORE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("uranium_ore")
-    val ZINC_ORE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("zinc_ore")
 
     private val stoneReplaceable: RuleTest = TagMatchTest(BlockTags.STONE_ORE_REPLACEABLES)
     private val deepslateReplaceable: RuleTest = TagMatchTest(BlockTags.DEEPSLATE_ORE_REPLACEABLES)
@@ -78,12 +77,6 @@ object ModConfiguredFeatures {
             Feature.ORE,
             OreConfiguration(overworldOre(ModBlocks.URANIUM_ORE, ModBlocks.DEEPSLATE_URANIUM_ORE), 9)
         )
-        register(
-            context,
-            ZINC_ORE_KEY,
-            Feature.ORE,
-            OreConfiguration(overworldOre(ModBlocks.ZINC_ORE, ModBlocks.DEEPSLATE_ZINC_ORE), 9)
-        )
     }
 
     fun overworldOre(default: RegistryObject<DropExperienceBlock>, deepslate: RegistryObject<DropExperienceBlock>): List<TargetBlockState> {
@@ -103,7 +96,7 @@ object ModConfiguredFeatures {
     fun registerKey(name: String): ResourceKey<ConfiguredFeature<*, *>> {
         return ResourceKey.create(
             Registries.CONFIGURED_FEATURE,
-            ResourceLocation(Overcharged.ID, name)
+            ResourceLocation(Overcharge.ID, name)
         )
     }
 

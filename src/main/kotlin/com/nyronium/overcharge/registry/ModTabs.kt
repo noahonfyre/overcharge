@@ -1,6 +1,6 @@
-package com.nyronium.overcharged.registry
+package com.nyronium.overcharge.registry
 
-import com.nyronium.overcharged.Overcharged
+import com.nyronium.overcharge.Overcharge
 import net.minecraft.core.registries.Registries
 import net.minecraft.network.chat.Component
 import net.minecraft.world.item.CreativeModeTab
@@ -11,7 +11,7 @@ import net.minecraftforge.registries.DeferredRegister
 import net.minecraftforge.registries.RegistryObject
 
 object ModTabs {
-    val TABS: DeferredRegister<CreativeModeTab> = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Overcharged.ID)
+    val TABS: DeferredRegister<CreativeModeTab> = DeferredRegister.create(Registries.CREATIVE_MODE_TAB, Overcharge.ID)
 
     fun register(eventBus: IEventBus) {
         TABS.register(eventBus)
@@ -22,7 +22,7 @@ object ModTabs {
     ) {
         CreativeModeTab.builder()
             .icon { ItemStack(ModItems.ICON.get()) }
-            .title(Component.literal("Overcharged"))
+            .title(Component.literal(Overcharge.NAME))
             .displayItems { itemDisplayParameters: ItemDisplayParameters, output: CreativeModeTab.Output ->
                 for (item in ModItems.ITEMS.entries) {
                     if(item.get() == ModItems.ICON.get()) continue

@@ -1,4 +1,4 @@
-package com.nyronium.overcharged.infrastructure.worldgen
+package com.nyronium.overcharge.infrastructure.worldgen
 
 import net.minecraft.world.level.levelgen.placement.*
 

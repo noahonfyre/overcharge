@@ -1,8 +1,8 @@
-package com.nyronium.overcharged.infrastructure.datagen
+package com.nyronium.overcharge.infrastructure.datagen
 
-import com.nyronium.overcharged.Overcharged
-import com.nyronium.overcharged.registry.ModBlocks
-import com.nyronium.overcharged.registry.ModItems
+import com.nyronium.overcharge.Overcharge
+import com.nyronium.overcharge.registry.ModBlocks
+import com.nyronium.overcharge.registry.ModItems
 import net.minecraft.world.flag.FeatureFlags
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.enchantment.Enchantments
@@ -32,17 +32,14 @@ open class ModBlockLootTables : net.minecraft.data.loot.BlockLootSubProvider(set
         addBlockLootTable(ModBlocks.NICKEL_ORE.get(), ModItems.RAW_NICKEL.get(), 1, 1)
         addBlockLootTable(ModBlocks.DEEPSLATE_NICKEL_ORE.get(), ModItems.RAW_NICKEL.get(), 1, 1)
 
-        addBlockLootTable(ModBlocks.SILICON_ORE.get(), ModItems.RAW_SILICON.get(), 1, 8)
-        addBlockLootTable(ModBlocks.DEEPSLATE_SILICON_ORE.get(), ModItems.RAW_SILICON.get(), 1, 8)
+        addBlockLootTable(ModBlocks.SILICON_ORE.get(), ModItems.RAW_SILICON.get(), 1, 10)
+        addBlockLootTable(ModBlocks.DEEPSLATE_SILICON_ORE.get(), ModItems.RAW_SILICON.get(), 1, 10)
 
         addBlockLootTable(ModBlocks.TITANIUM_ORE.get(), ModItems.RAW_TITANIUM.get(), 1, 1)
         addBlockLootTable(ModBlocks.DEEPSLATE_TITANIUM_ORE.get(), ModItems.RAW_TITANIUM.get(), 1, 1)
 
         addBlockLootTable(ModBlocks.URANIUM_ORE.get(), ModItems.RAW_URANIUM.get(), 1, 1)
         addBlockLootTable(ModBlocks.DEEPSLATE_URANIUM_ORE.get(), ModItems.RAW_URANIUM.get(), 1, 1)
-
-        addBlockLootTable(ModBlocks.ZINC_ORE.get(), ModItems.RAW_ZINC.get(), 1, 3)
-        addBlockLootTable(ModBlocks.DEEPSLATE_ZINC_ORE.get(), ModItems.RAW_ZINC.get(), 1, 3)
 
         for(item in knownBlocks) {
             if(item !in registered) {
@@ -67,7 +64,7 @@ open class ModBlockLootTables : net.minecraft.data.loot.BlockLootSubProvider(set
         return ForgeRegistries.BLOCKS.values
             .stream()
             .filter { block: Block? ->
-                ForgeRegistries.BLOCKS.getKey(block)!!.namespace == Overcharged.ID
+                ForgeRegistries.BLOCKS.getKey(block)!!.namespace == Overcharge.ID
             }
             .collect(Collectors.toSet())
     }

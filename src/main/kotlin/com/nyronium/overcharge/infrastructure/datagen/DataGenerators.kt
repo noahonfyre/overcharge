@@ -1,11 +1,11 @@
-package com.nyronium.overcharged.infrastructure.datagen
+package com.nyronium.overcharge.infrastructure.datagen
 
-import com.nyronium.overcharged.Overcharged
+import com.nyronium.overcharge.Overcharge
 import net.minecraftforge.data.event.GatherDataEvent
 import net.minecraftforge.eventbus.api.SubscribeEvent
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber
 
-@EventBusSubscriber(modid = Overcharged.ID, bus = EventBusSubscriber.Bus.MOD)
+@EventBusSubscriber(modid = Overcharge.ID, bus = EventBusSubscriber.Bus.MOD)
 object DataGenerators {
     @SubscribeEvent
     fun gatherData(event: GatherDataEvent) {

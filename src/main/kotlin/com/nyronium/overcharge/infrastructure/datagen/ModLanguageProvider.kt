@@ -1,13 +1,13 @@
-package com.nyronium.overcharged.infrastructure.datagen
+package com.nyronium.overcharge.infrastructure.datagen
 
-import com.nyronium.overcharged.Overcharged
-import com.nyronium.overcharged.registry.ModBlocks
-import com.nyronium.overcharged.registry.ModItems
+import com.nyronium.overcharge.Overcharge
+import com.nyronium.overcharge.registry.ModBlocks
+import com.nyronium.overcharge.registry.ModItems
 import net.minecraft.data.PackOutput
 import net.minecraft.world.level.block.LiquidBlock
 import net.minecraftforge.common.data.LanguageProvider
 
-class ModLanguageProvider(packOutput: PackOutput,) : LanguageProvider(packOutput, Overcharged.ID, "en_us") {
+class ModLanguageProvider(packOutput: PackOutput,) : LanguageProvider(packOutput, Overcharge.ID, "en_us") {
     override fun addTranslations() {
         add("key.category.overcharged.overcharged", "overcharged")
         add("key.overcharged.suit_flight", "Toggle Suit Flight")

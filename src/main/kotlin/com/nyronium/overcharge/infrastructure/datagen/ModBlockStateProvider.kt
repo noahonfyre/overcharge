@@ -1,7 +1,7 @@
-package com.nyronium.overcharged.infrastructure.datagen
+package com.nyronium.overcharge.infrastructure.datagen
 
-import com.nyronium.overcharged.Overcharged
-import com.nyronium.overcharged.registry.ModBlocks
+import com.nyronium.overcharge.Overcharge
+import com.nyronium.overcharge.registry.ModBlocks
 import net.minecraft.data.PackOutput
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.level.block.Block
@@ -11,7 +11,7 @@ import net.minecraftforge.registries.ForgeRegistries
 import net.minecraftforge.registries.RegistryObject
 
 
-class ModBlockStateProvider(output: PackOutput, exFileHelper: ExistingFileHelper) : net.minecraftforge.client.model.generators.BlockStateProvider(output, Overcharged.ID, exFileHelper) {
+class ModBlockStateProvider(output: PackOutput, exFileHelper: ExistingFileHelper) : net.minecraftforge.client.model.generators.BlockStateProvider(output, Overcharge.ID, exFileHelper) {
     val WATER_STILL: ResourceLocation = ResourceLocation("block/water_still")
 
     override fun registerStatesAndModels() {

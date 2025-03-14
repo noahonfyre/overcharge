@@ -1,8 +1,7 @@
-package com.nyronium.overcharged.infrastructure.datagen
+package com.nyronium.overcharge.infrastructure.datagen
 
-import com.nyronium.overcharged.Overcharged
-import com.nyronium.overcharged.registry.ModItems
-import com.nyronium.overcharged.registry.ModTags
+import com.nyronium.overcharge.Overcharge
+import com.nyronium.overcharge.registry.ModTags
 import net.minecraft.core.HolderLookup
 import net.minecraft.data.PackOutput
 import net.minecraft.data.tags.ItemTagsProvider
@@ -16,7 +15,7 @@ class ModItemTagGenerator(
     tagLookupCompletableFuture: CompletableFuture<TagLookup<Block?>?>,
     existingFileHelper: ExistingFileHelper?
 ) :
-    ItemTagsProvider(packOutput, providerCompletableFuture, tagLookupCompletableFuture, Overcharged.ID, existingFileHelper) {
+    ItemTagsProvider(packOutput, providerCompletableFuture, tagLookupCompletableFuture, Overcharge.ID, existingFileHelper) {
     override fun addTags(provider: HolderLookup.Provider) {
         tag(ModTags.Items.CURIO_BRACELET_SLOT)
 

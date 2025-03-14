@@ -1,6 +1,6 @@
-package com.nyronium.overcharged.infrastructure.worldgen
+package com.nyronium.overcharge.infrastructure.worldgen
 
-import com.nyronium.overcharged.Overcharged
+import com.nyronium.overcharge.Overcharge
 import net.minecraft.core.Holder
 import net.minecraft.core.registries.Registries
 import net.minecraft.data.worldgen.BootstapContext
@@ -21,7 +21,6 @@ object ModPlacedFeatures {
     val SILICON_ORE_PLACED_KEY: ResourceKey<PlacedFeature> = registerKey("silicon_ore_placed")
     val TITANIUM_ORE_PLACED_KEY: ResourceKey<PlacedFeature> = registerKey("titanium_ore_placed")
     val URANIUM_ORE_PLACED_KEY: ResourceKey<PlacedFeature> = registerKey("uranium_ore_placed")
-    val ZINC_ORE_PLACED_KEY: ResourceKey<PlacedFeature> = registerKey("zinc_ore_placed")
 
     fun bootstrap(context: BootstapContext<PlacedFeature>) {
         val configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE)
@@ -89,20 +88,11 @@ object ModPlacedFeatures {
                 HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(319))
             )
         )
-        register(
-            context,
-            ZINC_ORE_PLACED_KEY,
-            configuredFeatures.getOrThrow(ModConfiguredFeatures.ZINC_ORE_KEY),
-            ModOrePlacement.commonOrePlacement(
-                6,
-                HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(319))
-            )
-        )
     }
 
 
     private fun registerKey(name: String): ResourceKey<PlacedFeature> {
-        return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation(Overcharged.ID, name))
+        return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation(Overcharge.ID, name))
     }
 
     private fun register(

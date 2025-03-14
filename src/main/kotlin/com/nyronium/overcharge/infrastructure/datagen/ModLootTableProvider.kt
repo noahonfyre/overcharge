@@ -1,4 +1,4 @@
-package com.nyronium.overcharged.infrastructure.datagen
+package com.nyronium.overcharge.infrastructure.datagen
 
 import net.minecraft.data.PackOutput
 import net.minecraft.data.loot.LootTableProvider
