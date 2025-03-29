@@ -73,6 +73,7 @@ object ModItems {
     val STURDY_MODULAR_FRAME: RegistryObject<Item> = ITEMS.register("sturdy_modular_frame") { Item(Item.Properties()) }
     val TURBINE: RegistryObject<Item> = ITEMS.register("turbine") { Item(Item.Properties()) }
     val HEATER: RegistryObject<Item> = ITEMS.register("heater") { Item(Item.Properties()) }
+    val ARM_COMPONENT: RegistryObject<Item> = ITEMS.register("arm_component") { Item(Item.Properties()) }
 
     val STEEL_SWORD: RegistryObject<Item> = ITEMS.register("steel_sword") { SwordItem(ModToolTiers.STEEL, 1, 1f, Item.Properties()) }
     val STEEL_AXE: RegistryObject<Item> = ITEMS.register("steel_axe") { AxeItem(ModToolTiers.STEEL, 1f, 1f, Item.Properties()) }
@@ -118,8 +119,6 @@ object ModItems {
 
     val PULVERIZED_BASALT: RegistryObject<Item> = ITEMS.register("pulverized_basalt") { Item(Item.Properties()) }
     val BASALT_FIBER: RegistryObject<Item> = ITEMS.register("basalt_fiber") { Item(Item.Properties()) }
-
-    val LUMEN_BLEND: RegistryObject<Item> = ITEMS.register("lumen_blend") { Item(Item.Properties()) }
 
     val OXYGEN_BUCKET: RegistryObject<Item> = ITEMS.register("oxygen_bucket") { FluidBucketItem(ModFluidProperties.OXYGEN, Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)) }
     val HYDROGEN_BUCKET: RegistryObject<Item> = ITEMS.register("hydrogen_bucket") { FluidBucketItem(ModFluidProperties.HYDROGEN, Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)) }
