@@ -10,6 +10,5 @@ Below is a list of inspirations and/or implementations of things from other proj
 
 ### Code / Written Work
 - [Ad-Astra by terrarium-earth](https://github.com/terrarium-earth/Ad-Astra) licensed under Terrarium License v1 (Code under MIT) for the functionality of the jet armor.
-- Parts of [Common-Storage-Lib by terrarium-earth](https://github.com/terrarium-earth/Common-Storage-Lib) licensed under MIT copied to the project for Kotlin compatibility and more compatibility related changes.
 
 Thank you all for your work. 🫶 Without you, this mod probably wouldn't work and look quite as it does now. See something I forgot to credit? Please open an issue or reach out to us in any way, and I will happily add the credit here.
