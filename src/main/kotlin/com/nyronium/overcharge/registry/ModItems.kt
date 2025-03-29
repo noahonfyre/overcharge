@@ -119,6 +119,8 @@ object ModItems {
     val PULVERIZED_BASALT: RegistryObject<Item> = ITEMS.register("pulverized_basalt") { Item(Item.Properties()) }
     val BASALT_FIBER: RegistryObject<Item> = ITEMS.register("basalt_fiber") { Item(Item.Properties()) }
 
+    val LUMEN_BLEND: RegistryObject<Item> = ITEMS.register("lumen_blend") { Item(Item.Properties()) }
+
     val OXYGEN_BUCKET: RegistryObject<Item> = ITEMS.register("oxygen_bucket") { FluidBucketItem(ModFluidProperties.OXYGEN, Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)) }
     val HYDROGEN_BUCKET: RegistryObject<Item> = ITEMS.register("hydrogen_bucket") { FluidBucketItem(ModFluidProperties.HYDROGEN, Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)) }
     val NITROGEN_BUCKET: RegistryObject<Item> = ITEMS.register("nitrogen_bucket") { FluidBucketItem(ModFluidProperties.NITROGEN, Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)) }
