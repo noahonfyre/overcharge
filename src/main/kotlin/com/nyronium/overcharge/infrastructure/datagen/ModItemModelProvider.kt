@@ -1,6 +1,8 @@
 package com.nyronium.overcharge.infrastructure.datagen
 
 import com.nyronium.overcharge.Overcharge
+import com.nyronium.overcharge.content.item.base.HammerItem
+import com.nyronium.overcharge.content.item.base.WrenchItem
 import com.nyronium.overcharge.registry.ModItems
 import net.minecraft.data.PackOutput
 import net.minecraft.resources.ResourceKey
@@ -36,36 +38,36 @@ class ModItemModelProvider(output: PackOutput, existingFileHelper: ExistingFileH
     }
 
     private fun isHandheldItem(item: Item): Boolean {
-        return item is SwordItem || item is AxeItem || item is PickaxeItem || item is HoeItem || item is ShovelItem
+        return item is SwordItem || item is AxeItem || item is PickaxeItem || item is HoeItem || item is ShovelItem || item is WrenchItem || item is HammerItem
     }
 
     private fun simpleItem(item: RegistryObject<Item>): ItemModelBuilder {
         return withExistingParent(
             item.id.path,
-            ResourceLocation("item/generated")
+            ResourceLocation.parse("item/generated")
         ).texture(
             "layer0",
-            ResourceLocation(Overcharge.ID, "item/" + item.id.path)
+            ResourceLocation.tryBuild(Overcharge.ID, "item/" + item.id.path)
         )
     }
 
     private fun handheldItem(item: RegistryObject<Item>): ItemModelBuilder {
         return withExistingParent(
             item.id.path,
-            ResourceLocation("item/handheld")
+            ResourceLocation.parse("item/handheld")
         ).texture(
             "layer0",
-            ResourceLocation(Overcharge.ID, "item/" + item.id.path)
+            ResourceLocation.tryBuild(Overcharge.ID, "item/" + item.id.path)
         )
     }
 
     private fun handheldCustomItem(name: String): ItemModelBuilder {
         return withExistingParent(
             name,
-            ResourceLocation("item/handheld")
+            ResourceLocation.parse("item/handheld")
         ).texture(
             "layer0",
-            ResourceLocation(Overcharge.ID, "item/$name")
+            ResourceLocation.tryBuild(Overcharge.ID, "item/$name")
         )
     }
 
@@ -84,9 +86,9 @@ class ModItemModelProvider(output: PackOutput, existingFileHelper: ExistingFileH
                 val armorItemPath = "item/$armorItem"
                 val trimPath = "trims/items/" + armorType + "_trim_" + trimMaterial.location().path
                 val currentTrimName = armorItemPath + "_" + trimMaterial.location().path + "_trim"
-                val armorItemResLoc = ResourceLocation(Overcharge.ID, armorItemPath)
-                val trimResLoc = ResourceLocation(trimPath)
-                val trimNameResLoc = ResourceLocation(Overcharge.ID, currentTrimName)
+                val armorItemResLoc = ResourceLocation.tryBuild(Overcharge.ID, armorItemPath)
+                val trimResLoc = ResourceLocation.parse(trimPath)
+                val trimNameResLoc = ResourceLocation.tryBuild(Overcharge.ID, currentTrimName)
 
                 existingFileHelper.trackGenerated(trimResLoc, PackType.CLIENT_RESOURCES, ".png", "textures")
 
@@ -103,7 +105,7 @@ class ModItemModelProvider(output: PackOutput, existingFileHelper: ExistingFileH
                     .predicate(mcLoc("trim_type"), value).end()
                     .texture(
                         "layer0",
-                        ResourceLocation(
+                        ResourceLocation.tryBuild(
                             Overcharge.ID,
                             "item/" + itemRegistryObject.id.path
                         )
