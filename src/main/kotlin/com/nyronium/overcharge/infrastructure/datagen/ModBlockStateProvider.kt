@@ -12,7 +12,7 @@ import net.minecraftforge.registries.RegistryObject
 
 
 class ModBlockStateProvider(output: PackOutput, exFileHelper: ExistingFileHelper) : net.minecraftforge.client.model.generators.BlockStateProvider(output, Overcharge.ID, exFileHelper) {
-    val WATER_STILL: ResourceLocation = ResourceLocation("block/water_still")
+    val WATER_STILL: ResourceLocation = ResourceLocation.parse("block/water_still")
 
     override fun registerStatesAndModels() {
         for(item in ModBlocks.BLOCKS.entries) {

@@ -29,12 +29,6 @@ open class ModBlockLootTables : net.minecraft.data.loot.BlockLootSubProvider(set
         addBlockLootTable(ModBlocks.MINERAL_COMPOUND_ORE.get(), ModItems.MINERAL_COMPOUND.get(), 1, 1)
         addBlockLootTable(ModBlocks.DEEPSLATE_MINERAL_COMPOUND_ORE.get(), ModItems.MINERAL_COMPOUND.get(), 1, 1)
 
-        addBlockLootTable(ModBlocks.NICKEL_ORE.get(), ModItems.RAW_NICKEL.get(), 1, 1)
-        addBlockLootTable(ModBlocks.DEEPSLATE_NICKEL_ORE.get(), ModItems.RAW_NICKEL.get(), 1, 1)
-
-        addBlockLootTable(ModBlocks.SILICON_ORE.get(), ModItems.RAW_SILICON.get(), 1, 10)
-        addBlockLootTable(ModBlocks.DEEPSLATE_SILICON_ORE.get(), ModItems.RAW_SILICON.get(), 1, 10)
-
         addBlockLootTable(ModBlocks.TITANIUM_ORE.get(), ModItems.RAW_TITANIUM.get(), 1, 1)
         addBlockLootTable(ModBlocks.DEEPSLATE_TITANIUM_ORE.get(), ModItems.RAW_TITANIUM.get(), 1, 1)
 

@@ -2,12 +2,13 @@ package com.nyronium.overcharge.infrastructure.datagen
 
 import com.nyronium.overcharge.Overcharge
 import com.nyronium.overcharge.registry.ModBlocks
+import com.nyronium.overcharge.registry.ModFluidProperties
 import com.nyronium.overcharge.registry.ModItems
 import net.minecraft.data.PackOutput
 import net.minecraft.world.level.block.LiquidBlock
 import net.minecraftforge.common.data.LanguageProvider
 
-class ModLanguageProvider(packOutput: PackOutput,) : LanguageProvider(packOutput, Overcharge.ID, "en_us") {
+class ModLanguageProvider(packOutput: PackOutput) : LanguageProvider(packOutput, Overcharge.ID, "en_us") {
     override fun addTranslations() {
         add("key.category.overcharged.overcharged", "overcharged")
         add("key.overcharged.suit_flight", "Toggle Suit Flight")
@@ -23,11 +24,11 @@ class ModLanguageProvider(packOutput: PackOutput,) : LanguageProvider(packOutput
             val itemName = formatTranslation(id.path)
             addBlock(item, itemName)
         }
-//        for (item in ModFluidProperties.FLUID_PROPERTIES.registry.entries) {
-//            val id = item.id ?: continue
-//            val itemName = formatTranslation(id.path)
-//            add("fluid_type.overcharged.${id.path}", itemName)
-//        }
+        for (item in ModFluidProperties.FLUID_PROPERTIES.registry.entries) {
+            val id = item.id ?: continue
+            val itemName = formatTranslation(id.path)
+            add("fluid_type.overcharged.${id.path}", itemName)
+        }
     }
 
     private fun formatTranslation(id: String): String {

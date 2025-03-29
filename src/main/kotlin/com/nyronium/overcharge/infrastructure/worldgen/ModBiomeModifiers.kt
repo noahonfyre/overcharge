@@ -17,8 +17,6 @@ object ModBiomeModifiers {
     val ADD_ALUMINUM_ORE: ResourceKey<BiomeModifier> = registerKey("add_aluminum_ore")
     val ADD_LITHIUM_ORE: ResourceKey<BiomeModifier> = registerKey("add_lithium_ore")
     val ADD_MINERAL_COMPOUND_ORE: ResourceKey<BiomeModifier> = registerKey("add_mineral_compound_ore")
-    val ADD_NICKEL_ORE: ResourceKey<BiomeModifier> = registerKey("add_nickel_ore")
-    val ADD_SILICON_ORE: ResourceKey<BiomeModifier> = registerKey("add_silicon_ore")
     val ADD_TITANIUM_ORE: ResourceKey<BiomeModifier> = registerKey("add_titanium_ore")
     val ADD_URANIUM_ORE: ResourceKey<BiomeModifier> = registerKey("add_uranium_ore")
 
@@ -44,20 +42,6 @@ object ModBiomeModifiers {
             ADD_MINERAL_COMPOUND_ORE, AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                 HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.MINERAL_COMPOUND_ORE_PLACED_KEY)),
-                GenerationStep.Decoration.UNDERGROUND_ORES
-            )
-        )
-        context.register(
-            ADD_NICKEL_ORE, AddFeaturesBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.NICKEL_ORE_PLACED_KEY)),
-                GenerationStep.Decoration.UNDERGROUND_ORES
-            )
-        )
-        context.register(
-            ADD_SILICON_ORE, AddFeaturesBiomeModifier(
-                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
-                HolderSet.direct(placedFeatures.getOrThrow(ModPlacedFeatures.SILICON_ORE_PLACED_KEY)),
                 GenerationStep.Decoration.UNDERGROUND_ORES
             )
         )

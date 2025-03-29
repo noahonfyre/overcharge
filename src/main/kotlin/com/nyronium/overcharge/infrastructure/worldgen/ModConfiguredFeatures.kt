@@ -24,8 +24,6 @@ object ModConfiguredFeatures {
     val ALUMINUM_ORE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("aluminum_ore")
     val LITHIUM_ORE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("lithium_ore")
     val MINERAL_COMPOUND_ORE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("mineral_compound_ore")
-    val NICKEL_ORE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("nickel_ore")
-    val SILICON_ORE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("silicon_ore")
     val TITANIUM_ORE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("titanium_ore")
     val URANIUM_ORE_KEY: ResourceKey<ConfiguredFeature<*, *>> = registerKey("uranium_ore")
 
@@ -39,43 +37,31 @@ object ModConfiguredFeatures {
             context,
             ALUMINUM_ORE_KEY,
             Feature.ORE,
-            OreConfiguration(overworldOre(ModBlocks.ALUMINUM_ORE, ModBlocks.DEEPSLATE_ALUMINUM_ORE), 9)
+            OreConfiguration(overworldOre(ModBlocks.ALUMINUM_ORE, ModBlocks.DEEPSLATE_ALUMINUM_ORE), 12)
         )
         register(
             context,
             LITHIUM_ORE_KEY,
             Feature.ORE,
-            OreConfiguration(overworldOre(ModBlocks.LITHIUM_ORE, ModBlocks.DEEPSLATE_LITHIUM_ORE), 9)
+            OreConfiguration(overworldOre(ModBlocks.LITHIUM_ORE, ModBlocks.DEEPSLATE_LITHIUM_ORE), 8)
         )
         register(
             context,
             MINERAL_COMPOUND_ORE_KEY,
             Feature.ORE,
-            OreConfiguration(overworldOre(ModBlocks.MINERAL_COMPOUND_ORE, ModBlocks.DEEPSLATE_MINERAL_COMPOUND_ORE), 9)
-        )
-        register(
-            context,
-            NICKEL_ORE_KEY,
-            Feature.ORE,
-            OreConfiguration(overworldOre(ModBlocks.NICKEL_ORE, ModBlocks.DEEPSLATE_NICKEL_ORE), 9)
-        )
-        register(
-            context,
-            SILICON_ORE_KEY,
-            Feature.ORE,
-            OreConfiguration(overworldOre(ModBlocks.SILICON_ORE, ModBlocks.DEEPSLATE_SILICON_ORE), 9)
+            OreConfiguration(overworldOre(ModBlocks.MINERAL_COMPOUND_ORE, ModBlocks.DEEPSLATE_MINERAL_COMPOUND_ORE), 8)
         )
         register(
             context,
             TITANIUM_ORE_KEY,
             Feature.ORE,
-            OreConfiguration(overworldOre(ModBlocks.TITANIUM_ORE, ModBlocks.DEEPSLATE_TITANIUM_ORE), 9)
+            OreConfiguration(overworldOre(ModBlocks.TITANIUM_ORE, ModBlocks.DEEPSLATE_TITANIUM_ORE), 6)
         )
         register(
             context,
             URANIUM_ORE_KEY,
             Feature.ORE,
-            OreConfiguration(overworldOre(ModBlocks.URANIUM_ORE, ModBlocks.DEEPSLATE_URANIUM_ORE), 9)
+            OreConfiguration(overworldOre(ModBlocks.URANIUM_ORE, ModBlocks.DEEPSLATE_URANIUM_ORE), 8)
         )
     }
 

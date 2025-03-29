@@ -36,12 +36,6 @@ class ModBlockTagGenerator(
             .add(ModBlocks.MINERAL_COMPOUND_ORE.get())
             .add(ModBlocks.DEEPSLATE_MINERAL_COMPOUND_ORE.get())
 
-            .add(ModBlocks.NICKEL_ORE.get())
-            .add(ModBlocks.DEEPSLATE_NICKEL_ORE.get())
-
-            .add(ModBlocks.SILICON_ORE.get())
-            .add(ModBlocks.DEEPSLATE_SILICON_ORE.get())
-
             .add(ModBlocks.TITANIUM_ORE.get())
             .add(ModBlocks.DEEPSLATE_TITANIUM_ORE.get())
 
@@ -57,12 +51,6 @@ class ModBlockTagGenerator(
 
             .add(ModBlocks.MINERAL_COMPOUND_ORE.get())
             .add(ModBlocks.DEEPSLATE_MINERAL_COMPOUND_ORE.get())
-
-            .add(ModBlocks.NICKEL_ORE.get())
-            .add(ModBlocks.DEEPSLATE_NICKEL_ORE.get())
-
-            .add(ModBlocks.SILICON_ORE.get())
-            .add(ModBlocks.DEEPSLATE_SILICON_ORE.get())
 
             .add(ModBlocks.TITANIUM_ORE.get())
             .add(ModBlocks.DEEPSLATE_TITANIUM_ORE.get())
