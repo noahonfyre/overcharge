@@ -45,6 +45,7 @@ object ModItems {
     val COPPER_PLATE: RegistryObject<Item> = ITEMS.register("copper_plate") { Item(Item.Properties()) }
     val COPPER_ROD: RegistryObject<Item> = ITEMS.register("copper_rod") { Item(Item.Properties()) }
     val COPPER_NUGGET: RegistryObject<Item> = ITEMS.register("copper_nugget") { Item(Item.Properties()) }
+    val HEATER: RegistryObject<Item> = ITEMS.register("heater") { Item(Item.Properties()) }
 
     val IRON_PLATE: RegistryObject<Item> = ITEMS.register("iron_plate") { Item(Item.Properties()) }
     val IRON_ROD: RegistryObject<Item> = ITEMS.register("iron_rod") { Item(Item.Properties()) }
@@ -72,8 +73,10 @@ object ModItems {
     val STEEL_NUGGET: RegistryObject<Item> = ITEMS.register("steel_nugget") { Item(Item.Properties()) }
     val STURDY_MODULAR_FRAME: RegistryObject<Item> = ITEMS.register("sturdy_modular_frame") { Item(Item.Properties()) }
     val TURBINE: RegistryObject<Item> = ITEMS.register("turbine") { Item(Item.Properties()) }
-    val HEATER: RegistryObject<Item> = ITEMS.register("heater") { Item(Item.Properties()) }
     val ARM_COMPONENT: RegistryObject<Item> = ITEMS.register("arm_component") { Item(Item.Properties()) }
+    val ADVANCED_ACCUMULATOR: RegistryObject<Item> = ITEMS.register("advanced_accumulator") { Item(Item.Properties()) }
+    val ADVANCED_FLUID_TANK: RegistryObject<Item> = ITEMS.register("advanced_fluid_tank") { Item(Item.Properties()) }
+    val MEMORY_STICK: RegistryObject<Item> = ITEMS.register("memory_stick") { Item(Item.Properties()) }
 
     val STEEL_SWORD: RegistryObject<Item> = ITEMS.register("steel_sword") { SwordItem(ModToolTiers.STEEL, 1, 1f, Item.Properties()) }
     val STEEL_AXE: RegistryObject<Item> = ITEMS.register("steel_axe") { AxeItem(ModToolTiers.STEEL, 1f, 1f, Item.Properties()) }
