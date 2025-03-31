@@ -118,6 +118,7 @@ object ModItems {
 
     val ELECTROLYTIC_CELL: RegistryObject<Item> = ITEMS.register("electrolytic_cell") { Item(Item.Properties()) }
     val GALVANIC_CELL: RegistryObject<Item> = ITEMS.register("galvanic_cell") { Item(Item.Properties()) }
+    val SECONDARY_CELL: RegistryObject<Item> = ITEMS.register("secondary_cell") { Item(Item.Properties()) }
     val FUEL_CELL: RegistryObject<Item> = ITEMS.register("fuel_cell") { Item(Item.Properties()) }
 
     val PULVERIZED_BASALT: RegistryObject<Item> = ITEMS.register("pulverized_basalt") { Item(Item.Properties()) }
