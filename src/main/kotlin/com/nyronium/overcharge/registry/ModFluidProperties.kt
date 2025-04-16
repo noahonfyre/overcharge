@@ -82,7 +82,7 @@ object ModFluidProperties {
             .screenOverlay(ResourceLocation.parse("textures/misc/underwater.png"))
             .viscosity(250)
             .density(250)
-            .tintColor(0xEF6D6A)
+            .tintColor(0xFF3530)
             .temperature(273+23)
             .dropOff(2)
             .canConvertToSource(false)
