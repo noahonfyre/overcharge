@@ -31,7 +31,7 @@ data class KeybindSyncPacket(
                 if (player != null) {
                     KeybindManager.set(player.uuid, KeybindManager.KeyCategory.SPRINTING, packet.isSprinting)
                     KeybindManager.set(player.uuid, KeybindManager.KeyCategory.JUMPING, packet.isJumping)
-                    KeybindManager.set(player.uuid, KeybindManager.KeyCategory.JUMPING, packet.flightEnabled)
+                    KeybindManager.set(player.uuid, KeybindManager.KeyCategory.FLIGHT_ENABLED, packet.flightEnabled)
                 }
             }
             ctx.packetHandled = true
