@@ -22,6 +22,8 @@ object DataGenerators {
 
         val blockTagGenerator = gen.addProvider(event.includeServer(), ModBlockTagGenerator(packOutput, lookupProvider, existingFileHelper))
 
+        gen.addProvider(event.includeServer(), ModRecipeProvider(packOutput))
+
         gen.addProvider(event.includeServer(), ModItemTagGenerator(packOutput, lookupProvider, blockTagGenerator.contentsGetter(), existingFileHelper))
         gen.addProvider(event.includeServer(), ModWorldGenProvider(packOutput, lookupProvider))
     }
