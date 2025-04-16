@@ -27,4 +27,7 @@ object ModFluids {
 
     val POLYETHYLENE: RegistryObject<Fluid> = FLUIDS.register("polyethylene") { BotariumSourceFluid(ModFluidProperties.POLYETHYLENE) }
     val FLOWING_POLYETHYLENE: RegistryObject<Fluid> = FLUIDS.register("flowing_polyethylene") { BotariumFlowingFluid(ModFluidProperties.POLYETHYLENE) }
+
+    val PHOTORESIST: RegistryObject<Fluid> = FLUIDS.register("photoresist") { BotariumSourceFluid(ModFluidProperties.PHOTORESIST) }
+    val FLOWING_PHOTORESIST: RegistryObject<Fluid> = FLUIDS.register("flowing_photoresist") { BotariumFlowingFluid(ModFluidProperties.PHOTORESIST) }
 }

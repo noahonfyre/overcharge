@@ -11,8 +11,8 @@ object ModFluidProperties {
 
     val OXYGEN: FluidData = FLUID_PROPERTIES.register("oxygen",
         FluidProperties.create()
-            .still(ResourceLocation.parse("block/water_still"))
-            .flowing(ResourceLocation.parse("block/water_flow"))
+            .still(ResourceLocation.tryBuild(Overcharge.ID, "block/generic_fluid_still"))
+            .flowing(ResourceLocation.tryBuild(Overcharge.ID, "block/generic_fluid_flow"))
             .overlay(ResourceLocation.parse("block/water_overlay"))
             .screenOverlay(ResourceLocation.parse("textures/misc/underwater.png"))
             .viscosity(0)
@@ -24,8 +24,8 @@ object ModFluidProperties {
 
     val HYDROGEN: FluidData = FLUID_PROPERTIES.register("hydrogen",
         FluidProperties.create()
-            .still(ResourceLocation.parse("block/water_still"))
-            .flowing(ResourceLocation.parse("block/water_flow"))
+            .still(ResourceLocation.tryBuild(Overcharge.ID, "block/generic_fluid_still"))
+            .flowing(ResourceLocation.tryBuild(Overcharge.ID, "block/generic_fluid_flow"))
             .overlay(ResourceLocation.parse("block/water_overlay"))
             .screenOverlay(ResourceLocation.parse("textures/misc/underwater.png"))
             .viscosity(0)
@@ -37,8 +37,8 @@ object ModFluidProperties {
 
     val NITROGEN: FluidData = FLUID_PROPERTIES.register("nitrogen",
         FluidProperties.create()
-            .still(ResourceLocation.parse("block/water_still"))
-            .flowing(ResourceLocation.parse("block/water_flow"))
+            .still(ResourceLocation.tryBuild(Overcharge.ID, "block/generic_fluid_still"))
+            .flowing(ResourceLocation.tryBuild(Overcharge.ID, "block/generic_fluid_flow"))
             .overlay(ResourceLocation.parse("block/water_overlay"))
             .screenOverlay(ResourceLocation.parse("textures/misc/underwater.png"))
             .viscosity(0)
@@ -56,8 +56,8 @@ object ModFluidProperties {
             .screenOverlay(ResourceLocation.parse("textures/misc/underwater.png"))
             .viscosity(1500)
             .density(1500)
-            .temperature(273)
-            .dropOff(3)
+            .temperature(273+53)
+            .dropOff(2)
             .canConvertToSource(false)
     )
 
@@ -69,8 +69,22 @@ object ModFluidProperties {
             .screenOverlay(ResourceLocation.parse("textures/misc/underwater.png"))
             .viscosity(800)
             .density(800)
-            .temperature(273)
-            .dropOff(3)
+            .temperature(273+7)
+            .dropOff(2)
+            .canConvertToSource(false)
+    )
+
+    val PHOTORESIST: FluidData = FLUID_PROPERTIES.register("photoresist",
+        FluidProperties.create()
+            .still(ResourceLocation.tryBuild(Overcharge.ID, "block/generic_fluid_still"))
+            .flowing(ResourceLocation.tryBuild(Overcharge.ID, "block/generic_fluid_flow"))
+            .overlay(ResourceLocation.parse("textures/block/water_overlay"))
+            .screenOverlay(ResourceLocation.parse("textures/misc/underwater.png"))
+            .viscosity(250)
+            .density(250)
+            .tintColor(0xEF6D6A)
+            .temperature(273+23)
+            .dropOff(2)
             .canConvertToSource(false)
     )
 }
