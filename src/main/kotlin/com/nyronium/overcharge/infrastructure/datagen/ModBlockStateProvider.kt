@@ -6,6 +6,7 @@ import net.minecraft.data.PackOutput
 import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.level.block.Block
 import net.minecraft.world.level.block.LiquidBlock
+import net.minecraftforge.client.model.generators.ModelFile
 import net.minecraftforge.common.data.ExistingFileHelper
 import net.minecraftforge.registries.ForgeRegistries
 import net.minecraftforge.registries.RegistryObject
@@ -16,13 +17,20 @@ class ModBlockStateProvider(output: PackOutput, exFileHelper: ExistingFileHelper
 
     override fun registerStatesAndModels() {
         for(item in ModBlocks.BLOCKS.entries) {
+            if(isMachine(item.get())) continue
             if(item.get() is LiquidBlock) {
                 simpleBlock(item.get(), models().getBuilder(key(item.get()).path).texture("particle", WATER_STILL.toString()));
                 continue
-            } else {
-                blockWithItem(item)
             }
+            blockWithItem(item)
         }
+
+        simpleBlockWithItem(ModBlocks.ELECTRIC_SMELTER.get(), ModelFile.UncheckedModelFile(modLoc("block/electric_smelter")))
+        simpleBlockWithItem(ModBlocks.DEPOT.get(), ModelFile.UncheckedModelFile(modLoc("block/depot")))
+    }
+
+    private fun isMachine(block: Block): Boolean {
+        return block in listOf<Block>(ModBlocks.DEPOT.get(), ModBlocks.ELECTRIC_SMELTER.get())
     }
 
     private fun blockWithItem(blockRegistryObject: RegistryObject<Block>) {
