@@ -28,3 +28,4 @@ src/generated
 # docs
 node_modules
 /docs/.vitepress/cache
+package-lock.json
