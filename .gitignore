@@ -24,3 +24,7 @@ run
 runs
 
 src/generated
+
+# docs
+node_modules
+/docs/.vitepress/cache
