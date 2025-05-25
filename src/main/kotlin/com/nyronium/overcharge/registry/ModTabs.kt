@@ -28,30 +28,11 @@ object ModTabs {
             .displayItems { itemDisplayParameters: ItemDisplayParameters, output: CreativeModeTab.Output ->
                 for (item in ModItems.ITEMS.entries) {
                     if(item.get() == ModItems.ICON.get()) continue
-                    // unclean af; needs triage
                     when (item.get()) {
                         ModItems.COPPER_PLATE.get() -> {
                             output.accept(Items.RAW_COPPER)
                             output.accept(Items.COPPER_INGOT)
                             output.accept(item.get())
-                        }
-                        ModItems.IRON_PLATE.get() -> {
-                            output.accept(Items.RAW_IRON)
-                            output.accept(Items.IRON_INGOT)
-                            output.accept(item.get())
-                        }
-                        ModItems.IRON_ROD.get() -> {
-                            output.accept(item.get())
-                            output.accept(Items.IRON_NUGGET)
-                        }
-                        ModItems.GOLD_PLATE.get() -> {
-                            output.accept(Items.RAW_GOLD)
-                            output.accept(Items.GOLD_INGOT)
-                        }
-                        ModItems.GOLD_ROD.get() -> {
-                            output.accept(item.get())
-                            output.accept(Items.GOLD_NUGGET)
-
                         }
                         else -> output.accept(item.get())
                     }
