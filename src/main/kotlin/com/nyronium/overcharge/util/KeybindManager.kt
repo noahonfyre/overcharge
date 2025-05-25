@@ -19,13 +19,11 @@ object KeybindManager {
         when (category) {
             KeyCategory.JUMPING -> { Overcharge.JUMPING[uuid] = value }
             KeyCategory.SPRINTING -> { Overcharge.SPRINTING[uuid] = value }
-            KeyCategory.FLIGHT_ENABLED -> { Overcharge.FLIGHT_ENABLED[uuid] = value }
         }
     }
 
     enum class KeyCategory {
         SPRINTING,
-        JUMPING,
-        FLIGHT_ENABLED,
+        JUMPING
     }
 }

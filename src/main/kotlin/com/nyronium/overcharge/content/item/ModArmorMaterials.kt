@@ -35,9 +35,6 @@ enum class ModArmorMaterials(
     ) });
 
     override fun getDurabilityForType(pType: ArmorItem.Type): Int {
-        ArmorMaterials.IRON
-        ArmorMaterials.DIAMOND
-        ArmorMaterials.NETHERITE
         return BASE_DURABILITY[pType.ordinal] * this.durabilityMultiplier
     }
 

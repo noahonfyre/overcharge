@@ -32,7 +32,6 @@ object Overcharge {
 
     val SPRINTING = mutableMapOf<UUID, Boolean>()
     val JUMPING = mutableMapOf<UUID, Boolean>()
-    val FLIGHT_ENABLED = mutableMapOf<UUID, Boolean>()
 
     init {
         LOGGER.log(Level.INFO, "Overcharging...")

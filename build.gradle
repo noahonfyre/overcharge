@@ -156,6 +156,7 @@ dependencies {
     implementation fg.deobf("curse.maven:botarium-704113:5486070")
     implementation fg.deobf("curse.maven:jade-324717:5672013")
     implementation fg.deobf("curse.maven:appleskin-248787:4770828")
+    implementation fg.deobf("curse.maven:do-a-barrel-roll-663658:5326142")
 
     compileOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api"))
     runtimeOnly(fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}"))
