@@ -1,17 +1,19 @@
 {
   "name": "overcharge",
   "scripts": {
-    "docs:dev": "vitepress dev docs",
+    "dev": "gradlew runClient",
+    "data": "gradlew runData",
+    "build": "gradlew assemble",
+    "docs:dev": "vitepress dev docs --host",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
   },
-  "author": "Noah Zeisberg",
+  "author": "NoahOnFyre",
   "license": "MIT",
   "devDependencies": {
     "vitepress": "^1.6.3"
   },
   "dependencies": {
-    "@catppuccin/vitepress": "^0.1.2",
     "vue": "^3.5.13"
   }
 }
