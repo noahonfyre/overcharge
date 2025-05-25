@@ -4,13 +4,8 @@ import com.nyronium.overcharge.Overcharge
 import com.nyronium.overcharge.registry.ModBlocks
 import com.nyronium.overcharge.registry.ModItems
 import net.minecraft.data.PackOutput
-import net.minecraft.data.recipes.FinishedRecipe
-import net.minecraft.data.recipes.RecipeCategory
-import net.minecraft.data.recipes.RecipeProvider
-import net.minecraft.data.recipes.ShapedRecipeBuilder
-import net.minecraft.data.recipes.ShapelessRecipeBuilder
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder
-import net.minecraft.tags.ItemTags
+import net.minecraft.data.recipes.*
+import net.minecraft.resources.ResourceLocation
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.AbstractCookingRecipe
@@ -29,6 +24,15 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
     override fun buildRecipes(pWriter: Consumer<FinishedRecipe>) {
         oreSmeltingRecipe(pWriter, ALUMINUM_SMELTABLES, RecipeCategory.MISC, ModItems.ALUMINUM_INGOT.get(), 0.25f, 200, "aluminum")
         oreBlastingRecipe(pWriter, ALUMINUM_SMELTABLES, RecipeCategory.MISC, ModItems.ALUMINUM_INGOT.get(), 0.25f, 100, "aluminum")
+
+        oreSmeltingRecipe(pWriter, LITHIUM_SMELTABLES, RecipeCategory.MISC, ModItems.LITHIUM_INGOT.get(), 0.25f, 200, "lithium")
+        oreBlastingRecipe(pWriter, LITHIUM_SMELTABLES, RecipeCategory.MISC, ModItems.LITHIUM_INGOT.get(), 0.25f, 100, "lithium")
+
+        oreSmeltingRecipe(pWriter, TITANIUM_SMELTABLES, RecipeCategory.MISC, ModItems.TITANIUM_INGOT.get(), 0.25f, 200, "titanium")
+        oreBlastingRecipe(pWriter, TITANIUM_SMELTABLES, RecipeCategory.MISC, ModItems.TITANIUM_INGOT.get(), 0.25f, 100, "titanium")
+
+        oreSmeltingRecipe(pWriter, URANIUM_SMELTABLES, RecipeCategory.MISC, ModItems.URANIUM_INGOT.get(), 0.25f, 200, "uranium")
+        oreBlastingRecipe(pWriter, URANIUM_SMELTABLES, RecipeCategory.MISC, ModItems.URANIUM_INGOT.get(), 0.25f, 100, "uranium")
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MODULAR_FRAME.get())
             .pattern("PRP")
@@ -67,11 +71,11 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
             .save(pWriter)
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ACCUMULATOR.get())
-            .pattern("SRS")
+            .pattern("SPS")
             .pattern("YCY")
             .pattern("SSS")
             .define('S') { ModItems.STEEL_PLATE.get() }
-            .define('R') { ModItems.STEEL_ROD.get() }
+            .define('P') { ModItems.COPPER_PLATE.get() }
             .define('Y') { ModItems.SYNTHETIC.get() }
             .define('C') { ModItems.SECONDARY_CELL.get() }
             .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
@@ -89,10 +93,9 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
             .save(pWriter)
 
         ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.CHEMICAL_CORE.get())
-            .pattern("RCR")
+            .pattern("PCP")
             .pattern("PFP")
-            .pattern("RCR")
-            .define('R') { ModItems.STEEL_ROD.get() }
+            .pattern("PCP")
             .define('C') { ModItems.CHEMICAL_COMPOUND.get() }
             .define('P') { ModItems.STEEL_PLATE.get() }
             .define('F') { ModItems.STURDY_MODULAR_FRAME.get() }
@@ -157,21 +160,70 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
             .save(pWriter)
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ORGANIC_COMPOUND.get(), 4)
-            .requires { Items.KELP }
-            .requires(ItemTags.LEAVES)
-            .requires { Items.KELP }
-            .requires(ItemTags.LEAVES)
+            .requires(Items.KELP)
+            .requires(Items.KELP)
+            .requires(Items.SUGAR_CANE)
+            .requires(Items.SUGAR_CANE)
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.REFINED_RADIANCE.get(), 1)
+            .requires(Items.QUARTZ)
+            .requires(ModItems.RADIANCE_DUST.get())
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ARM_COMPONENT.get())
+            .pattern("SRS")
+            .pattern("F R")
+            .pattern("  S")
+            .define('R') { ModItems.STEEL_ROD.get() }
+            .define('F') { ModItems.STURDY_MODULAR_FRAME.get() }
+            .define('S') { ModItems.SYNTHETIC.get() }
             .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
             .save(pWriter)
 
         materialSet(pWriter, ModItems.ALUMINUM_INGOT.get(), ModItems.ALUMINUM_NUGGET.get(), ModItems.ALUMINUM_PLATE.get(), ModItems.ALUMINUM_ROD.get())
         materialSet(pWriter, Items.COPPER_INGOT, ModItems.COPPER_NUGGET.get(), ModItems.COPPER_PLATE.get(), ModItems.COPPER_ROD.get())
-        materialSet(pWriter, Items.IRON_INGOT, Items.IRON_NUGGET, ModItems.IRON_PLATE.get(), ModItems.IRON_ROD.get())
-        materialSet(pWriter, Items.GOLD_INGOT, Items.GOLD_NUGGET, ModItems.GOLD_PLATE.get(), ModItems.GOLD_ROD.get())
         materialSet(pWriter, ModItems.LITHIUM_INGOT.get(), ModItems.LITHIUM_NUGGET.get(), ModItems.LITHIUM_PLATE.get(), ModItems.LITHIUM_ROD.get())
         materialSet(pWriter, ModItems.STEEL_INGOT.get(), ModItems.STEEL_NUGGET.get(), ModItems.STEEL_PLATE.get(), ModItems.STEEL_ROD.get())
         materialSet(pWriter, ModItems.TITANIUM_INGOT.get(), ModItems.TITANIUM_NUGGET.get(), ModItems.TITANIUM_PLATE.get(), ModItems.TITANIUM_ROD.get())
         materialSet(pWriter, ModItems.URANIUM_INGOT.get(), ModItems.URANIUM_NUGGET.get(), ModItems.URANIUM_PLATE.get(), ModItems.URANIUM_ROD.get())
+
+        toolSet(
+            pWriter,
+            ModItems.STEEL_INGOT.get(),
+            ModItems.STEEL_ROD.get(),
+            ModItems.STEEL_SWORD.get(),
+            ModItems.STEEL_AXE.get(),
+            ModItems.STEEL_PICKAXE.get(),
+            ModItems.STEEL_SHOVEL.get(),
+            ModItems.STEEL_HOE.get(),
+            ModItems.STEEL_HAMMER.get(),
+            ModItems.STEEL_WRENCH.get()
+        )
+
+        upgradableToolSet(
+            pWriter,
+            ModItems.TITANIUM_INGOT.get(),
+            ModItems.OVERCHARGE.get(),
+            ModItems.STEEL_SWORD.get(),
+            ModItems.STEEL_AXE.get(),
+            ModItems.STEEL_PICKAXE.get(),
+            ModItems.STEEL_SHOVEL.get(),
+            ModItems.STEEL_HOE.get(),
+            ModItems.STEEL_HAMMER.get(),
+            ModItems.STEEL_WRENCH.get(),
+            ModItems.TITANIUM_SWORD.get(),
+            ModItems.TITANIUM_AXE.get(),
+            ModItems.TITANIUM_PICKAXE.get(),
+            ModItems.TITANIUM_SHOVEL.get(),
+            ModItems.TITANIUM_HOE.get(),
+            ModItems.TITANIUM_HAMMER.get(),
+            ModItems.TITANIUM_WRENCH.get()
+        )
+
+        smithingRecipe(pWriter, ModItems.ACCUMULATOR.get(), ModItems.TITANIUM_WRENCH.get(), ModItems.SYNTHETIC.get(), ModItems.OVERCHARGE_WRENCH.get())
     }
 
     fun materialSet(pWriter: Consumer<FinishedRecipe>, ingot: Item, nugget: Item, plate: Item, rod: Item) {
@@ -203,6 +255,87 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
             .define('X') { plate }
             .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
             .save(pWriter)
+    }
+
+    fun toolSet(pWriter: Consumer<FinishedRecipe>, ingot: Item, rod: Item, sword: Item, axe: Item, pickaxe: Item, shovel: Item, hoe: Item, hammer: Item, wrench: Item) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, sword)
+            .pattern(" I ")
+            .pattern(" I ")
+            .pattern(" R ")
+            .define('I') { ingot }
+            .define('R') { rod }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, axe)
+            .pattern("II ")
+            .pattern("IR ")
+            .pattern(" R ")
+            .define('I') { ingot }
+            .define('R') { rod }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, pickaxe)
+            .pattern("III")
+            .pattern(" R ")
+            .pattern(" R ")
+            .define('I') { ingot }
+            .define('R') { rod }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, shovel)
+            .pattern(" I ")
+            .pattern(" R ")
+            .pattern(" R ")
+            .define('I') { ingot }
+            .define('R') { rod }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, hoe)
+            .pattern("II ")
+            .pattern(" R ")
+            .pattern(" R ")
+            .define('I') { ingot }
+            .define('R') { rod }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, hammer)
+            .pattern("III")
+            .pattern("IRI")
+            .pattern(" R ")
+            .define('I') { ingot }
+            .define('R') { rod }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, wrench)
+            .pattern("I I")
+            .pattern("IRI")
+            .pattern(" R ")
+            .define('I') { ingot }
+            .define('R') { rod }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+    }
+
+    fun upgradableToolSet(pWriter: Consumer<FinishedRecipe>, upgrade: Item, template: Item, pSword: Item, pAxe: Item, pPickaxe: Item, pShovel: Item, pHoe: Item, pHammer: Item, pWrench: Item, sSword: Item, sAxe: Item, sPickaxe: Item, sShovel: Item, sHoe: Item, sHammer: Item, sWrench: Item) {
+        smithingRecipe(pWriter, template, pSword, upgrade, sSword)
+        smithingRecipe(pWriter, template, pAxe, upgrade, sAxe)
+        smithingRecipe(pWriter, template, pPickaxe, upgrade, sPickaxe)
+        smithingRecipe(pWriter, template, pShovel, upgrade, sShovel)
+        smithingRecipe(pWriter, template, pHoe, upgrade, sHoe)
+        smithingRecipe(pWriter, template, pHammer, upgrade, sHammer)
+        smithingRecipe(pWriter, template, pWrench, upgrade, sWrench)
+    }
+
+    protected fun smithingRecipe(pWriter: Consumer<FinishedRecipe>, template: Item, base: Item, addition: Item, result: Item) {
+        SmithingTransformRecipeBuilder.smithing(Ingredient.of(template), Ingredient.of(base), Ingredient.of(addition), RecipeCategory.MISC, result)
+            .unlocks(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter, ResourceLocation.fromNamespaceAndPath(Overcharge.ID, "smithing/" + getItemName(result)))
     }
 
     protected fun oreSmeltingRecipe(pFinishedRecipeConsumer: Consumer<FinishedRecipe>, pIngredients: MutableList<ItemLike>, pCategory: RecipeCategory, pResult: ItemLike, pExperience: Float, pCookingTIme: Int, pGroup: String) {
