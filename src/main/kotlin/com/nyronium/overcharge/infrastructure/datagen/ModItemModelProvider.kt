@@ -12,11 +12,13 @@ import net.minecraft.world.entity.EquipmentSlot
 import net.minecraft.world.item.ArmorItem
 import net.minecraft.world.item.AxeItem
 import net.minecraft.world.item.BlockItem
+import net.minecraft.world.item.DiggerItem
 import net.minecraft.world.item.HoeItem
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.PickaxeItem
 import net.minecraft.world.item.ShovelItem
 import net.minecraft.world.item.SwordItem
+import net.minecraft.world.item.TieredItem
 import net.minecraft.world.item.armortrim.TrimMaterial
 import net.minecraft.world.item.armortrim.TrimMaterials
 import net.minecraftforge.client.model.generators.ItemModelBuilder
@@ -38,7 +40,7 @@ class ModItemModelProvider(output: PackOutput, existingFileHelper: ExistingFileH
     }
 
     private fun isHandheldItem(item: Item): Boolean {
-        return item is SwordItem || item is AxeItem || item is PickaxeItem || item is HoeItem || item is ShovelItem || item is WrenchItem || item is HammerItem
+        return item is SwordItem || item is AxeItem || item is PickaxeItem || item is HoeItem || item is ShovelItem || item is WrenchItem || item is HammerItem || item is DiggerItem || item is TieredItem
     }
 
     private fun simpleItem(item: RegistryObject<Item>): ItemModelBuilder {
