@@ -5,13 +5,13 @@ layout: home
 hero:
   name: Overcharge
   text: Documentation
-  tagline: My great project tagline
+  tagline: Welcome to the official documentation of the Overcharge Minecraft mod!
   actions:
     - theme: brand
       text: Getting Started
       link: /getting-started/overview
     - theme: alt
-      text: Installation Guide
+      text: Installation Guide [WIP]
       link: /getting-started/installation
 
 features:

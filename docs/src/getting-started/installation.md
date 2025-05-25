@@ -1,0 +1,2 @@
+# Installation
+Currently, the mod is only available on its official [Modrinth Page](https://modrinth.com/mod/overcharge) and can be installed through any launcher with Modrinth support, like the [Modrinth App](https://modrinth.com/app) or [Prism](https://prismlauncher.org/).
