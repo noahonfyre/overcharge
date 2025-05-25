@@ -1,6 +1,8 @@
 package com.nyronium.overcharge.networking
 
 import com.nyronium.overcharge.Overcharge
+import com.nyronium.overcharge.networking.clientbound.TesseractActivationPacket
+import com.nyronium.overcharge.networking.serverbound.KeybindSyncPacket
 import net.minecraft.resources.ResourceLocation
 import net.minecraftforge.network.NetworkRegistry
 import net.minecraftforge.network.simple.SimpleChannel
@@ -16,6 +18,18 @@ object NetworkHandler {
 
     fun register() {
         var id = 0
-        CHANNEL.registerMessage(id++, KeybindSyncPacket::class.java, KeybindSyncPacket::encode, KeybindSyncPacket.Companion::decode, KeybindSyncPacket::handle)
+        CHANNEL.registerMessage(
+            id++,
+            KeybindSyncPacket::class.java,
+            KeybindSyncPacket::encode,
+            KeybindSyncPacket.Companion::decode,
+            KeybindSyncPacket::handle)
+
+        CHANNEL.registerMessage(
+            id++,
+            TesseractActivationPacket::class.java,
+            TesseractActivationPacket::encode,
+            TesseractActivationPacket.Companion::decode,
+            TesseractActivationPacket::handle)
     }
 }
