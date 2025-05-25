@@ -2,20 +2,17 @@ package com.nyronium.overcharge.registry
 
 import com.nyronium.overcharge.Overcharge
 import com.nyronium.overcharge.content.item.ModArmorMaterials
-import com.nyronium.overcharge.registry.ModFluidProperties
 import com.nyronium.overcharge.content.item.ModToolTiers
+import com.nyronium.overcharge.content.item.base.GlintItem
 import com.nyronium.overcharge.content.item.base.HammerItem
 import com.nyronium.overcharge.content.item.base.WrenchItem
+import com.nyronium.overcharge.content.item.custom.NiagaraItem
+import com.nyronium.overcharge.content.item.custom.OverchargeBladeItem
 import com.nyronium.overcharge.content.item.custom.OverchargeSuitItem
+import com.nyronium.overcharge.content.item.custom.TesseractItem
 import earth.terrarium.botarium.common.registry.fluid.FluidBucketItem
-import earth.terrarium.botarium.common.registry.fluid.FluidProperties
-import net.minecraft.world.effect.MobEffectInstance
-import net.minecraft.world.effect.MobEffects
-import net.minecraft.world.food.FoodProperties
 import net.minecraft.world.item.ArmorItem
-import net.minecraft.world.item.ArmorMaterials
 import net.minecraft.world.item.AxeItem
-import net.minecraft.world.item.BucketItem
 import net.minecraft.world.item.HoeItem
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.Items
@@ -44,19 +41,11 @@ object ModItems {
     val COPPER_NUGGET: RegistryObject<Item> = ITEMS.register("copper_nugget") { Item(Item.Properties()) }
     val HEATER: RegistryObject<Item> = ITEMS.register("heater") { Item(Item.Properties()) }
 
-    val IRON_PLATE: RegistryObject<Item> = ITEMS.register("iron_plate") { Item(Item.Properties()) }
-    val IRON_ROD: RegistryObject<Item> = ITEMS.register("iron_rod") { Item(Item.Properties()) }
-
-    val GOLD_PLATE: RegistryObject<Item> = ITEMS.register("gold_plate") { Item(Item.Properties()) }
-    val GOLD_ROD: RegistryObject<Item> = ITEMS.register("gold_rod") { Item(Item.Properties()) }
-
     val RAW_LITHIUM: RegistryObject<Item> = ITEMS.register("raw_lithium") { Item(Item.Properties()) }
     val LITHIUM_INGOT: RegistryObject<Item> = ITEMS.register("lithium_ingot") { Item(Item.Properties()) }
     val LITHIUM_PLATE: RegistryObject<Item> = ITEMS.register("lithium_plate") { Item(Item.Properties()) }
     val LITHIUM_ROD: RegistryObject<Item> = ITEMS.register("lithium_rod") { Item(Item.Properties()) }
     val LITHIUM_NUGGET: RegistryObject<Item> = ITEMS.register("lithium_nugget") { Item(Item.Properties()) }
-    val CHEMICAL_COMPOUND: RegistryObject<Item> = ITEMS.register("chemical_compound") { Item(Item.Properties()) }
-    val CHEMICAL_CORE: RegistryObject<Item> = ITEMS.register("chemical_core") { Item(Item.Properties()) }
 
     val STEEL_INGOT: RegistryObject<Item> = ITEMS.register("steel_ingot") { Item(Item.Properties()) }
     val STEEL_PLATE: RegistryObject<Item> = ITEMS.register("steel_plate") { Item(Item.Properties()) }
@@ -67,7 +56,6 @@ object ModItems {
     val ARM_COMPONENT: RegistryObject<Item> = ITEMS.register("arm_component") { Item(Item.Properties()) }
     val ACCUMULATOR: RegistryObject<Item> = ITEMS.register("accumulator") { Item(Item.Properties()) }
     val FLUID_TANK: RegistryObject<Item> = ITEMS.register("fluid_tank") { Item(Item.Properties()) }
-    val MEMORY_STICK: RegistryObject<Item> = ITEMS.register("memory_stick") { Item(Item.Properties()) }
 
     val RAW_TITANIUM: RegistryObject<Item> = ITEMS.register("raw_titanium") { Item(Item.Properties()) }
     val TITANIUM_INGOT: RegistryObject<Item> = ITEMS.register("titanium_ingot") { Item(Item.Properties()) }
@@ -81,13 +69,13 @@ object ModItems {
     val URANIUM_ROD: RegistryObject<Item> = ITEMS.register("uranium_rod") { Item(Item.Properties()) }
     val URANIUM_NUGGET: RegistryObject<Item> = ITEMS.register("uranium_nugget") { Item(Item.Properties()) }
 
-    val ALUMINUM_SWORD: RegistryObject<Item> = ITEMS.register("aluminum_sword") { SwordItem(ModToolTiers.ALUMINUM, 3, -2.4f, Item.Properties()) }
-    val ALUMINUM_AXE: RegistryObject<Item> = ITEMS.register("aluminum_axe") { AxeItem(ModToolTiers.ALUMINUM, 6f, -3.1f, Item.Properties()) }
-    val ALUMINUM_PICKAXE: RegistryObject<Item> = ITEMS.register("aluminum_pickaxe") { PickaxeItem(ModToolTiers.ALUMINUM, 1, -2.8f, Item.Properties()) }
-    val ALUMINUM_SHOVEL: RegistryObject<Item> = ITEMS.register("aluminum_shovel") { ShovelItem(ModToolTiers.ALUMINUM, 1.5f, -3.0f, Item.Properties()) }
-    val ALUMINUM_HOE: RegistryObject<Item> = ITEMS.register("aluminum_hoe") { HoeItem(ModToolTiers.ALUMINUM, -2, -1f, Item.Properties()) }
-    val ALUMINUM_WRENCH: RegistryObject<Item> = ITEMS.register("aluminum_wrench") { WrenchItem(ModToolTiers.ALUMINUM, 2f, 2f, Item.Properties()) }
-    val ALUMINUM_HAMMER: RegistryObject<Item> = ITEMS.register("aluminum_hammer") { HammerItem(ModToolTiers.ALUMINUM, 2f, 2f, Item.Properties()) }
+//    val ALUMINUM_SWORD: RegistryObject<Item> = ITEMS.register("aluminum_sword") { SwordItem(ModToolTiers.ALUMINUM, 3, -2.4f, Item.Properties()) }
+//    val ALUMINUM_AXE: RegistryObject<Item> = ITEMS.register("aluminum_axe") { AxeItem(ModToolTiers.ALUMINUM, 6f, -3.1f, Item.Properties()) }
+//    val ALUMINUM_PICKAXE: RegistryObject<Item> = ITEMS.register("aluminum_pickaxe") { PickaxeItem(ModToolTiers.ALUMINUM, 1, -2.8f, Item.Properties()) }
+//    val ALUMINUM_SHOVEL: RegistryObject<Item> = ITEMS.register("aluminum_shovel") { ShovelItem(ModToolTiers.ALUMINUM, 1.5f, -3.0f, Item.Properties()) }
+//    val ALUMINUM_HOE: RegistryObject<Item> = ITEMS.register("aluminum_hoe") { HoeItem(ModToolTiers.ALUMINUM, -2, -1f, Item.Properties()) }
+//    val ALUMINUM_WRENCH: RegistryObject<Item> = ITEMS.register("aluminum_wrench") { WrenchItem(ModToolTiers.ALUMINUM, 2f, 2f, Item.Properties()) }
+//    val ALUMINUM_HAMMER: RegistryObject<Item> = ITEMS.register("aluminum_hammer") { HammerItem(ModToolTiers.ALUMINUM, 2f, 2f, Item.Properties()) }
 
     val STEEL_SWORD: RegistryObject<Item> = ITEMS.register("steel_sword") { SwordItem(ModToolTiers.STEEL, 1, 1f, Item.Properties()) }
     val STEEL_AXE: RegistryObject<Item> = ITEMS.register("steel_axe") { AxeItem(ModToolTiers.STEEL, 1f, 1f, Item.Properties()) }
@@ -110,37 +98,73 @@ object ModItems {
     val SECONDARY_CELL: RegistryObject<Item> = ITEMS.register("secondary_cell") { Item(Item.Properties()) }
     val FUEL_CELL: RegistryObject<Item> = ITEMS.register("fuel_cell") { Item(Item.Properties()) }
 
+    val DIMENSIONAL_RESIDUE: RegistryObject<Item> = ITEMS.register("dimensional_residue") { Item(Item.Properties()) }
+    val DIMENSION_FRAGMENTED_TITANIUM_INGOT: RegistryObject<Item> = ITEMS.register("dimension_fragmented_titanium_ingot") { Item(Item.Properties()) }
     val PHOSPHORUS: RegistryObject<Item> = ITEMS.register("phosphorus") { Item(Item.Properties()) }
     val SULFURIC_RESIDUE: RegistryObject<Item> = ITEMS.register("sulfuric_residue") { Item(Item.Properties()) }
 
+    val ENDER_DUST: RegistryObject<Item> = ITEMS.register("ender_dust") { Item(Item.Properties()) }
+    val ENDERIC_ESSENCE: RegistryObject<Item> = ITEMS.register("enderic_essence") { Item(Item.Properties()) }
+
     val PULVERIZED_SAND: RegistryObject<Item> = ITEMS.register("pulverized_sand") { Item(Item.Properties()) }
     val SILICA: RegistryObject<Item> = ITEMS.register("silica") { Item(Item.Properties()) }
-    val SILICON: RegistryObject<Item> = ITEMS.register("silicon") { Item(Item.Properties()) }
     val SILICON_SHARD: RegistryObject<Item> = ITEMS.register("silicon_shard") { Item(Item.Properties()) }
+    val SILICON: RegistryObject<Item> = ITEMS.register("silicon") { Item(Item.Properties()) }
+    val SILICON_INFUSED_PEARL: RegistryObject<Item> = ITEMS.register("silicon_infused_pearl") { Item(Item.Properties()) }
     val WAFER: RegistryObject<Item> = ITEMS.register("wafer") { Item(Item.Properties()) }
 
+    val REACTIVE_CLUSTERS: RegistryObject<Item> = ITEMS.register("reactive_clusters") { Item(Item.Properties()) }
     val AMETHYST_DUST: RegistryObject<Item> = ITEMS.register("amethyst_dust") { Item(Item.Properties()) }
     val CRYSTALLIC_FIBERS: RegistryObject<Item> = ITEMS.register("crystallic_fibers") { Item(Item.Properties()) }
 
     val MINERAL_COMPOUND: RegistryObject<Item> = ITEMS.register("mineral_compound") { Item(Item.Properties()) }
-    val ORGANIC_COMPOUND: RegistryObject<Item> = ITEMS.register("organic_compound") { Item(Item.Properties()) }
     val SYNTHETIC: RegistryObject<Item> = ITEMS.register("synthetic") { Item(Item.Properties()) }
+    val ORGANIC_COMPOUND: RegistryObject<Item> = ITEMS.register("organic_compound") { Item(Item.Properties()) }
+    val PHOTONIC_COMPOUND: RegistryObject<Item> = ITEMS.register("photonic_compound") { Item(Item.Properties()) }
+    val CHEMICAL_COMPOUND: RegistryObject<Item> = ITEMS.register("chemical_compound") { Item(Item.Properties()) }
+    val CHEMICAL_CORE: RegistryObject<Item> = ITEMS.register("chemical_core") { Item(Item.Properties()) }
 
     val PULVERIZED_BASALT: RegistryObject<Item> = ITEMS.register("pulverized_basalt") { Item(Item.Properties()) }
     val BASALT_FIBER: RegistryObject<Item> = ITEMS.register("basalt_fiber") { Item(Item.Properties()) }
 
     val UNSTABLE_DIAMOND: RegistryObject<Item> = ITEMS.register("unstable_diamond") { Item(Item.Properties()) }
-    val TERMINAL: RegistryObject<Item> = ITEMS.register("terminal") { Item(Item.Properties()) }
+    val KYBERNETIC_CORE: RegistryObject<Item> = ITEMS.register("kybernetic_core") { Item(Item.Properties()) }
+
+    val RADIANCE_DUST: RegistryObject<Item> = ITEMS.register("radiance_dust") { GlintItem(Item.Properties()) }
+    val REFINED_RADIANCE: RegistryObject<Item> = ITEMS.register("refined_radiance") { GlintItem(Item.Properties()) }
+    val NANITE_PASTE: RegistryObject<Item> = ITEMS.register("nanite_paste") { Item(Item.Properties()) }
+    val ARCANE_RESIN: RegistryObject<Item> = ITEMS.register("arcane_resin") { Item(Item.Properties()) }
+    val VOID_THREADS: RegistryObject<Item> = ITEMS.register("void_threads") { Item(Item.Properties()) }
+    val COSMIC_SHARD: RegistryObject<Item> = ITEMS.register("cosmic_shard") { Item(Item.Properties()) }
+
+    val MICROPROCESSOR: RegistryObject<Item> = ITEMS.register("microprocessor") { Item(Item.Properties()) }
+    val LOW_VOLTAGE_PROCESSOR: RegistryObject<Item> = ITEMS.register("low_voltage_processor") { Item(Item.Properties()) }
+    val MEDIUM_VOLTAGE_PROCESSOR: RegistryObject<Item> = ITEMS.register("medium_voltage_processor") { Item(Item.Properties()) }
+    val HIGH_VOLTAGE_PROCESSOR: RegistryObject<Item> = ITEMS.register("high_voltage_processor") { Item(Item.Properties()) }
+
+    val OVERCHARGE: RegistryObject<Item> = ITEMS.register("overcharge") { Item(Item.Properties()) }
+    val TESSERACT: RegistryObject<Item> = ITEMS.register("tesseract") { TesseractItem(Item.Properties().stacksTo(1), 2_000_000) }
+
+    val NIAGARA: RegistryObject<Item> = ITEMS.register("niagara") { NiagaraItem(Item.Properties()) }
+    val TAURUS: RegistryObject<Item> = ITEMS.register("taurus") { Item(Item.Properties()) }
+    val NEXUS: RegistryObject<Item> = ITEMS.register("nexus") { Item(Item.Properties()) }
+    val FRACTURE: RegistryObject<Item> = ITEMS.register("fracture") { Item(Item.Properties()) }
 
     val OXYGEN_BUCKET: RegistryObject<Item> = ITEMS.register("oxygen_bucket") { FluidBucketItem(ModFluidProperties.OXYGEN, Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)) }
     val HYDROGEN_BUCKET: RegistryObject<Item> = ITEMS.register("hydrogen_bucket") { FluidBucketItem(ModFluidProperties.HYDROGEN, Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)) }
     val NITROGEN_BUCKET: RegistryObject<Item> = ITEMS.register("nitrogen_bucket") { FluidBucketItem(ModFluidProperties.NITROGEN, Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)) }
     val LIQUID_COMPOUND_BUCKET: RegistryObject<Item> = ITEMS.register("liquid_compound_bucket") { FluidBucketItem(ModFluidProperties.LIQUID_COMPOUND, Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)) }
     val POLYETHYLENE_BUCKET: RegistryObject<Item> = ITEMS.register("polyethylene_bucket") { FluidBucketItem(ModFluidProperties.POLYETHYLENE, Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)) }
+    val VOLATILE_SOLUTION_BUCKET: RegistryObject<Item> = ITEMS.register("volatile_solution_bucket") { FluidBucketItem(ModFluidProperties.VOLATILE_SOLUTION, Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)) }
+    val DESTABILIZED_SILICON_BUCKET: RegistryObject<Item> = ITEMS.register("destabilized_silicon_bucket") { FluidBucketItem(ModFluidProperties.DESTABILIZED_SILICON, Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)) }
     val PHOTORESIST_BUCKET: RegistryObject<Item> = ITEMS.register("photoresist_bucket") { FluidBucketItem(ModFluidProperties.PHOTORESIST, Item.Properties().craftRemainder(Items.BUCKET).stacksTo(1)) }
 
+    val OVERCHARGE_CORE: RegistryObject<Item> = ITEMS.register("overcharge_core") { Item(Item.Properties()) }
     val OVERCHARGE_HELMET: RegistryObject<Item> = ITEMS.register("overcharge_helmet") { ArmorItem(ModArmorMaterials.OVERCHARGE, ArmorItem.Type.HELMET, Item.Properties()) }
-    val OVERCHARGE_CHESTPLATE: RegistryObject<Item> = ITEMS.register("overcharge_chestplate") { OverchargeSuitItem(4, 2_000_000, Item.Properties()) }
+    val OVERCHARGE_CHESTPLATE: RegistryObject<Item> = ITEMS.register("overcharge_chestplate") { OverchargeSuitItem(2_000_000, Item.Properties()) }
     val OVERCHARGE_LEGGINGS: RegistryObject<Item> = ITEMS.register("overcharge_leggings") { ArmorItem(ModArmorMaterials.OVERCHARGE, ArmorItem.Type.LEGGINGS, Item.Properties()) }
     val OVERCHARGE_BOOTS: RegistryObject<Item> = ITEMS.register("overcharge_boots") { ArmorItem(ModArmorMaterials.OVERCHARGE, ArmorItem.Type.BOOTS, Item.Properties()) }
+
+    val OVERCHARGE_BLADE: RegistryObject<Item> = ITEMS.register("overcharge_blade") { OverchargeBladeItem(2_000_000, Item.Properties()) }
+    val OVERCHARGE_WRENCH: RegistryObject<Item> = ITEMS.register("overcharge_wrench") { WrenchItem(ModToolTiers.OVERCHARGE, 1f, 1f, Item.Properties()) }
 }

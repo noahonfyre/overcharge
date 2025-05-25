@@ -18,33 +18,31 @@ object ModTags {
         val MINEABLE_WITH_HAMMER: TagKey<Block> = tag("mineable_with_hammer")
 
         private fun tag(name: String): TagKey<Block> {
-            return BlockTags.create(ResourceLocation(Overcharge.ID, name))
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath(Overcharge.ID, name))
         }
 
         private fun forgeTag(name: String): TagKey<Block> {
-            return BlockTags.create(ResourceLocation("forge", name))
-        }
-
-        fun populate() {
-
+            return BlockTags.create(ResourceLocation.fromNamespaceAndPath("forge", name))
         }
     }
 
     object Items {
+        val CURIO_HEAD_SLOT: TagKey<Item> = curiosTag("head")
         val CURIO_BRACELET_SLOT: TagKey<Item> = curiosTag("bracelet")
         val CURIO_RING_SLOT: TagKey<Item> = curiosTag("ring")
         val CURIO_BACK_SLOT: TagKey<Item> = curiosTag("back")
+        val CURIO_HANDS_SLOT: TagKey<Item> = curiosTag("hands")
         val CURIO_BODY_SLOT: TagKey<Item> = curiosTag("body")
 
         private fun tag(name: String): TagKey<Item> {
-            return ItemTags.create(ResourceLocation(Overcharge.ID, name))
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath(Overcharge.ID, name))
         }
         private fun curiosTag(name: String): TagKey<Item> {
-            return ItemTags.create(ResourceLocation("curios", name))
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath("curios", name))
         }
 
         private fun forgeTag(name: String): TagKey<Item> {
-            return ItemTags.create(ResourceLocation("forge", name))
+            return ItemTags.create(ResourceLocation.fromNamespaceAndPath("forge", name))
         }
     }
 }
