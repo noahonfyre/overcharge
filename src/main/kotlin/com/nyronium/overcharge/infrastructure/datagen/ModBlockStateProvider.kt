@@ -17,7 +17,7 @@ class ModBlockStateProvider(output: PackOutput, exFileHelper: ExistingFileHelper
 
     override fun registerStatesAndModels() {
         for(item in ModBlocks.BLOCKS.entries) {
-            if(isMachine(item.get())) continue
+            if(hasCustomModel(item.get())) continue
             if(item.get() is LiquidBlock) {
                 simpleBlock(item.get(), models().getBuilder(key(item.get()).path).texture("particle", WATER_STILL.toString()));
                 continue
@@ -29,8 +29,10 @@ class ModBlockStateProvider(output: PackOutput, exFileHelper: ExistingFileHelper
         simpleBlockWithItem(ModBlocks.DEPOT.get(), ModelFile.UncheckedModelFile(modLoc("block/depot")))
     }
 
-    private fun isMachine(block: Block): Boolean {
-        return block in listOf<Block>(ModBlocks.DEPOT.get(), ModBlocks.ELECTRIC_SMELTER.get())
+    private fun hasCustomModel(block: Block): Boolean {
+        return block in listOf(
+            ModBlocks.DEPOT.get(),
+            ModBlocks.ELECTRIC_SMELTER.get())
     }
 
     private fun blockWithItem(blockRegistryObject: RegistryObject<Block>) {

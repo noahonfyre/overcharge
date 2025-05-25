@@ -20,6 +20,8 @@ import java.util.function.Supplier
 object ModBlocks {
     val BLOCKS: DeferredRegister<Block> = DeferredRegister.create(ForgeRegistries.BLOCKS, Overcharge.ID)
 
+    val BAUXITE = registerBlock("bauxite") { Block(BlockBehaviour.Properties.of().strength(4.5f).requiresCorrectToolForDrops()) }
+
     val ALUMINUM_ORE = registerBlock("aluminum_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(4.5f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
     val DEEPSLATE_ALUMINUM_ORE = registerBlock("deepslate_aluminum_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(6f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
     val LITHIUM_ORE = registerBlock("lithium_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
@@ -32,12 +34,15 @@ object ModBlocks {
     val DEEPSLATE_URANIUM_ORE = registerBlock("deepslate_uranium_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(6.5f).explosionResistance(1200f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
 
     val SILICON_INFUSED_GLASS = registerBlock("silicon_infused_glass") { GlassBlock(BlockBehaviour.Properties.of().strength(0.5f).requiresCorrectToolForDrops()) }
+    val CHEMICALLY_INFUSED_GLASS = registerBlock("chemically_infused_glass") { GlassBlock(BlockBehaviour.Properties.of().strength(0.5f).requiresCorrectToolForDrops()) }
 
     val OXYGEN: RegistryObject<BotariumLiquidBlock> = BLOCKS.register("oxygen") { BotariumLiquidBlock(ModFluidProperties.OXYGEN, BlockBehaviour.Properties.copy(Blocks.WATER)) }
     val HYDROGEN: RegistryObject<BotariumLiquidBlock> = BLOCKS.register("hydrogen") { BotariumLiquidBlock(ModFluidProperties.HYDROGEN, BlockBehaviour.Properties.copy(Blocks.WATER)) }
     val NITROGEN: RegistryObject<BotariumLiquidBlock> = BLOCKS.register("nitrogen") { BotariumLiquidBlock(ModFluidProperties.NITROGEN, BlockBehaviour.Properties.copy(Blocks.WATER)) }
     val LIQUID_COMPOUND: RegistryObject<BotariumLiquidBlock> = BLOCKS.register("liquid_compound") { BotariumLiquidBlock(ModFluidProperties.LIQUID_COMPOUND, BlockBehaviour.Properties.copy(Blocks.WATER)) }
     val POLYETHYLENE: RegistryObject<BotariumLiquidBlock> = BLOCKS.register("polyethylene") { BotariumLiquidBlock(ModFluidProperties.POLYETHYLENE, BlockBehaviour.Properties.copy(Blocks.WATER)) }
+    val VOLATILE_SOLUTION: RegistryObject<BotariumLiquidBlock> = BLOCKS.register("volatile_solution") { BotariumLiquidBlock(ModFluidProperties.VOLATILE_SOLUTION, BlockBehaviour.Properties.copy(Blocks.WATER)) }
+    val DESTABILIZED_SILICON: RegistryObject<BotariumLiquidBlock> = BLOCKS.register("destabilized_silicon") { BotariumLiquidBlock(ModFluidProperties.DESTABILIZED_SILICON, BlockBehaviour.Properties.copy(Blocks.WATER)) }
     val PHOTORESIST: RegistryObject<BotariumLiquidBlock> = BLOCKS.register("photoresist") { BotariumLiquidBlock(ModFluidProperties.PHOTORESIST, BlockBehaviour.Properties.copy(Blocks.WATER)) }
 
     val DEPOT = registerBlock("depot") { Block(BlockBehaviour.Properties.of().strength(5f).requiresCorrectToolForDrops().noOcclusion()) }

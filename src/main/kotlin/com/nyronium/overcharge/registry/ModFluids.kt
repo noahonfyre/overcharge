@@ -28,6 +28,12 @@ object ModFluids {
     val POLYETHYLENE: RegistryObject<Fluid> = FLUIDS.register("polyethylene") { BotariumSourceFluid(ModFluidProperties.POLYETHYLENE) }
     val FLOWING_POLYETHYLENE: RegistryObject<Fluid> = FLUIDS.register("flowing_polyethylene") { BotariumFlowingFluid(ModFluidProperties.POLYETHYLENE) }
 
+    val VOLATILE_SOLUTION: RegistryObject<Fluid> = FLUIDS.register("volatile_solution") { BotariumSourceFluid(ModFluidProperties.VOLATILE_SOLUTION) }
+    val FLOWING_VOLATILE_SOLUTION: RegistryObject<Fluid> = FLUIDS.register("flowing_volatile_solution") { BotariumFlowingFluid(ModFluidProperties.VOLATILE_SOLUTION) }
+
+    val DESTABILIZED_SILICON: RegistryObject<Fluid> = FLUIDS.register("destabilized_silicon") { BotariumSourceFluid(ModFluidProperties.DESTABILIZED_SILICON) }
+    val FLOWING_DESTABILIZED_SILICON: RegistryObject<Fluid> = FLUIDS.register("flowing_destabilized_silicon") { BotariumFlowingFluid(ModFluidProperties.DESTABILIZED_SILICON) }
+
     val PHOTORESIST: RegistryObject<Fluid> = FLUIDS.register("photoresist") { BotariumSourceFluid(ModFluidProperties.PHOTORESIST) }
     val FLOWING_PHOTORESIST: RegistryObject<Fluid> = FLUIDS.register("flowing_photoresist") { BotariumFlowingFluid(ModFluidProperties.PHOTORESIST) }
 }
