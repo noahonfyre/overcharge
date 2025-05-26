@@ -5,7 +5,7 @@ import com.google.common.collect.ImmutableMultimap
 import com.google.common.collect.Multimap
 import com.nyronium.overcharge.Overcharge
 import com.nyronium.overcharge.content.item.ModToolTiers
-import com.nyronium.overcharge.content.item.extensions.ItemAttributeModifierExtension
+import com.nyronium.overcharge.content.item.ItemAttributeModifierExtension
 import com.nyronium.overcharge.util.EnergyUtils
 import com.nyronium.overcharge.util.TooltipHelper
 import earth.terrarium.botarium.common.energy.base.BotariumEnergyItem
