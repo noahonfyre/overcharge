@@ -34,7 +34,7 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
         oreSmeltingRecipe(pWriter, URANIUM_SMELTABLES, RecipeCategory.MISC, ModItems.URANIUM_INGOT.get(), 0.25f, 200, "uranium")
         oreBlastingRecipe(pWriter, URANIUM_SMELTABLES, RecipeCategory.MISC, ModItems.URANIUM_INGOT.get(), 0.25f, 100, "uranium")
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MODULAR_FRAME.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MODULAR_FRAME.get(), 2)
             .pattern("PRP")
             .pattern("R R")
             .pattern("PRP")
@@ -52,7 +52,7 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
             .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
             .save(pWriter)
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STURDY_MODULAR_FRAME.get())
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STURDY_MODULAR_FRAME.get(), 2)
             .pattern("PRP")
             .pattern("R R")
             .pattern("PRP")
