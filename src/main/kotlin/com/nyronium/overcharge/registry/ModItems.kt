@@ -111,7 +111,6 @@ object ModItems {
     val SILICON_SHARD: RegistryObject<Item> = ITEMS.register("silicon_shard") { Item(Item.Properties()) }
     val SILICON: RegistryObject<Item> = ITEMS.register("silicon") { Item(Item.Properties()) }
     val SILICON_INFUSED_PEARL: RegistryObject<Item> = ITEMS.register("silicon_infused_pearl") { Item(Item.Properties()) }
-    val WAFER: RegistryObject<Item> = ITEMS.register("wafer") { Item(Item.Properties()) }
 
     val REACTIVE_CLUSTERS: RegistryObject<Item> = ITEMS.register("reactive_clusters") { Item(Item.Properties()) }
     val AMETHYST_DUST: RegistryObject<Item> = ITEMS.register("amethyst_dust") { Item(Item.Properties()) }
@@ -137,9 +136,11 @@ object ModItems {
     val VOID_THREADS: RegistryObject<Item> = ITEMS.register("void_threads") { Item(Item.Properties()) }
     val COSMIC_SHARD: RegistryObject<Item> = ITEMS.register("cosmic_shard") { Item(Item.Properties()) }
 
+    val UNSTABLE_WAFER: RegistryObject<Item> = ITEMS.register("unstable_wafer") { Item(Item.Properties()) }
     val MICROPROCESSOR: RegistryObject<Item> = ITEMS.register("microprocessor") { Item(Item.Properties()) }
+    val CHEMICAL_WAFER: RegistryObject<Item> = ITEMS.register("chemical_wafer") { Item(Item.Properties()) }
     val LOW_VOLTAGE_PROCESSOR: RegistryObject<Item> = ITEMS.register("low_voltage_processor") { Item(Item.Properties()) }
-    val MEDIUM_VOLTAGE_PROCESSOR: RegistryObject<Item> = ITEMS.register("medium_voltage_processor") { Item(Item.Properties()) }
+    val SILICON_WAFER: RegistryObject<Item> = ITEMS.register("silicon_wafer") { Item(Item.Properties()) }
     val HIGH_VOLTAGE_PROCESSOR: RegistryObject<Item> = ITEMS.register("high_voltage_processor") { Item(Item.Properties()) }
 
     val OVERCHARGE: RegistryObject<Item> = ITEMS.register("overcharge") { Item(Item.Properties()) }
