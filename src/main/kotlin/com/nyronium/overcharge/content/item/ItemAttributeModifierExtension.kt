@@ -1,4 +1,4 @@
-package com.nyronium.overcharge.content.item.extensions
+package com.nyronium.overcharge.content.item
 
 import java.util.UUID
 
