@@ -20,8 +20,6 @@ import java.util.function.Supplier
 object ModBlocks {
     val BLOCKS: DeferredRegister<Block> = DeferredRegister.create(ForgeRegistries.BLOCKS, Overcharge.ID)
 
-    val BAUXITE = registerBlock("bauxite") { Block(BlockBehaviour.Properties.of().strength(4.5f).requiresCorrectToolForDrops()) }
-
     val ALUMINUM_ORE = registerBlock("aluminum_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(4.5f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
     val DEEPSLATE_ALUMINUM_ORE = registerBlock("deepslate_aluminum_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(6f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
     val LITHIUM_ORE = registerBlock("lithium_ore") { DropExperienceBlock(BlockBehaviour.Properties.of().strength(3f).requiresCorrectToolForDrops(), UniformInt.of(6, 9)) }
