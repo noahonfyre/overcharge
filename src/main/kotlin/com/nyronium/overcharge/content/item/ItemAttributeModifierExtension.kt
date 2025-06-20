@@ -2,17 +2,27 @@ package com.nyronium.overcharge.content.item
 
 import java.util.UUID
 
-// Credits to lender544 on GitHub: https://github.com/lender544/new1.20.1/blob/master/src/main/java/com/github/L_Ender/cataclysm/items/More_Tool_Attribute.java
 interface ItemAttributeModifierExtension {
     val BASE_ENTITY_INTERACTION_RANGE_ID: UUID
-        get() = UUID.fromString("0CB612AF-CE7C-4FD2-9647-4BFD75B8D8A0")
+        get() = UUID.fromString("C3D8F2B1-A945-4E67-8D1C-2F9AB5E31D4E")
     val BASE_BLOCK_INTERACTION_RANGE_ID: UUID
-        get() = UUID.fromString("E7902C57-6C37-41CB-BBC4-F23AB1F287C0")
+        get() = UUID.fromString("D42A1B78-9E5C-4F3D-A167-8B9C45D30E2F")
 
     val BASE_ARMOR_ID: UUID
-        get() = UUID.fromString("FFB9296F-A5B3-4215-8196-4091D31575C6")
+        get() = UUID.fromString("7E91C384-5D2B-4A63-B8F0-1C9D73E46A5F")
     val BASE_ARMOR_TOUGHNESS_ID: UUID
-        get() = UUID.fromString("4A87FDB4-7CCC-471D-96C4-03AC8515E62F")
+        get() = UUID.fromString("B3F8E247-9C1A-4D85-95E3-7D4A82F6B1CE")
     val BASE_KNOCKBACK_RESISTANCE_ID: UUID
-        get() = UUID.fromString("0F9ECB41-87F5-4787-8731-0A6C693B77F3")
+        get() = UUID.fromString("A5D94C31-8E2F-4B76-9D1C-3F8EA5B90472")
+
+    val BASE_LUCK_ID: UUID
+        get() = UUID.fromString("D1F0A5E4-7B1C-4F13-8AB9-4C2C176A9E1D")
+    val BASE_MOVEMENT_SPEED_ID: UUID
+        get() = UUID.fromString("8F9E1B6A-2D3B-4B62-82A3-785F3F943491")
+    val BASE_SWIM_SPEED_ID: UUID
+        get() = UUID.fromString("B3A9C107-45F8-49D3-84C2-6E5F0B2B2FD1")
+    val BASE_ENTITY_GRAVITY_ID: UUID
+        get() = UUID.fromString("E22B1493-03F0-4714-B057-89982A92E12C")
+    val BASE_ENTITY_MAX_HEALTH: UUID
+        get() = UUID.fromString("4A187EF9-7DF9-4E8B-9D16-A7E6CCBDF2A1")
 }
