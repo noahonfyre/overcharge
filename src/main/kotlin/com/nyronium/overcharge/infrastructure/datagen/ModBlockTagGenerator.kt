@@ -17,14 +17,25 @@ class ModBlockTagGenerator(
 ) : net.minecraftforge.common.data.BlockTagsProvider(output, lookupProvider, Overcharge.ID, existingFileHelper) {
     override fun addTags(provider: HolderLookup.Provider) {
         tag(BlockTags.NEEDS_STONE_TOOL)
+            .add(ModBlocks.LITHIUM_ORE.get())
+            .add(ModBlocks.DEEPSLATE_LITHIUM_ORE.get())
+
+            .add(ModBlocks.MINERAL_COMPOUND_ORE.get())
+            .add(ModBlocks.DEEPSLATE_MINERAL_COMPOUND_ORE.get())
 
         tag(BlockTags.NEEDS_IRON_TOOL)
+            .add(ModBlocks.ALUMINUM_ORE.get())
+            .add(ModBlocks.DEEPSLATE_ALUMINUM_ORE.get())
 
         tag(BlockTags.NEEDS_DIAMOND_TOOL)
+            .add(ModBlocks.URANIUM_ORE.get())
+            .add(ModBlocks.DEEPSLATE_URANIUM_ORE.get())
 
         tag(ModTags.Blocks.NEEDS_ALUMINUM_TOOL)
 
         tag(ModTags.Blocks.NEEDS_STEEL_TOOL)
+            .add(ModBlocks.TITANIUM_ORE.get())
+            .add(ModBlocks.DEEPSLATE_TITANIUM_ORE.get())
 
         tag(Tags.Blocks.ORES)
             .add(ModBlocks.ALUMINUM_ORE.get())
