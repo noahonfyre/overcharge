@@ -21,18 +21,19 @@ enum class ModArmorMaterials(
     private val knockbackResistance: Float,
     private val repairIngredient: Supplier<Ingredient>
 ) : ArmorMaterial {
-    ALUMINUM("aluminum", 25, intArrayOf(6, 16, 12, 6), 30, SoundEvents.ARMOR_EQUIP_IRON, 2f, 0.5f, Supplier<Ingredient> { Ingredient.of(
+    ALUMINUM("aluminum", 25, intArrayOf(2, 6, 4, 2), 30, SoundEvents.ARMOR_EQUIP_CHAIN, 1f, 0.1f, Supplier<Ingredient> { Ingredient.of(
         ModItems.ALUMINUM_INGOT.get()
     ) }),
-    STEEL("steel", 80, intArrayOf(6, 16, 12, 6), 30, SoundEvents.ARMOR_EQUIP_CHAIN, 3f, 0.5f, Supplier<Ingredient> { Ingredient.of(
+    LITHIUM("lithium", 50, intArrayOf(4, 8, 6, 4), 30, SoundEvents.ARMOR_EQUIP_CHAIN, 2f, 0.1f, Supplier<Ingredient> { Ingredient.of(
+        ModItems.LITHIUM_INGOT.get()
+    ) }),
+    STEEL("steel", 75, intArrayOf(6, 10, 8, 6), 30, SoundEvents.ARMOR_EQUIP_IRON, 3f, 0.25f, Supplier<Ingredient> { Ingredient.of(
         ModItems.STEEL_INGOT.get()
     ) }),
-    TITANIUM("TITANIUM", 80, intArrayOf(6, 16, 12, 6), 30, SoundEvents.ARMOR_EQUIP_CHAIN, 4f, 0.5f, Supplier<Ingredient> { Ingredient.of(
+    TITANIUM("titanium", 100, intArrayOf(8, 12, 10, 8), 30, SoundEvents.ARMOR_EQUIP_NETHERITE, 4f, 0.5f, Supplier<Ingredient> { Ingredient.of(
         ModItems.TITANIUM_INGOT.get()
     ) }),
-    OVERCHARGE("overcharge", 150, intArrayOf(12, 24, 16, 12), 30, SoundEvents.ARMOR_EQUIP_NETHERITE, 6f, 1f, Supplier<Ingredient> { Ingredient.of(
-
-    ) });
+    OVERCHARGE("overcharge", 125, intArrayOf(10, 16, 12, 10), 30, SoundEvents.ARMOR_EQUIP_NETHERITE, 6f, 1.5f, Supplier<Ingredient> { Ingredient.of() });
 
     override fun getDurabilityForType(pType: ArmorItem.Type): Int {
         return BASE_DURABILITY[pType.ordinal] * this.durabilityMultiplier
