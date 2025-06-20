@@ -17,10 +17,6 @@ object TooltipHelper {
         return value.toUnitString(unit, scale)
     }
 
-    fun formatLong(long: Long): String {
-        return "%,d".format(long)
-    }
-
     fun getFluidAnnunciator(fluid: String, fluidColor: TextColor, baseValue: Long, maxValue: Long): Component {
         return Component.literal(fluid).withStyle(Style.EMPTY.withColor(fluidColor))
             .append(Component.literal(": ").withStyle(Style.EMPTY.withColor(ChatFormatting.DARK_GRAY)))
