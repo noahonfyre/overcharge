@@ -12,19 +12,27 @@ import net.minecraftforge.common.TierSortingRegistry
 
 object ModToolTiers {
     var ALUMINUM: Tier = TierSortingRegistry.registerTier(
-        ForgeTier(3, 448, 8f, 3f, 30, ModTags.Blocks.NEEDS_ALUMINUM_TOOL) { Ingredient.of(ModItems.ALUMINUM_INGOT.get()) },
-        ResourceLocation.tryBuild(Overcharge.ID, "aluminum"), listOf(), listOf()
+        ForgeTier(3, 648, 8f, 3f, 30, ModTags.Blocks.NEEDS_ALUMINUM_TOOL) { Ingredient.of(ModItems.ALUMINUM_INGOT.get()) },
+        ResourceLocation.tryBuild(Overcharge.ID, "aluminum"), listOf(Tiers.DIAMOND), listOf(Tiers.NETHERITE)
+    )
+    var LITHIUM: Tier = TierSortingRegistry.registerTier(
+        ForgeTier(3, 648, 8f, 3f, 30, ModTags.Blocks.NEEDS_ALUMINUM_TOOL) { Ingredient.of(ModItems.ALUMINUM_INGOT.get()) },
+        ResourceLocation.tryBuild(Overcharge.ID, "lithium"), listOf(Tiers.DIAMOND), listOf(Tiers.NETHERITE)
     )
     var STEEL: Tier = TierSortingRegistry.registerTier(
-        ForgeTier(4, 2432, 10f, 6f, 30, ModTags.Blocks.NEEDS_STEEL_TOOL) { Ingredient.of(ModItems.STEEL_INGOT.get()) },
-        ResourceLocation.tryBuild(Overcharge.ID, "steel"), listOf(), listOf()
+        ForgeTier(4, 2432, 12f, 6f, 30, ModTags.Blocks.NEEDS_STEEL_TOOL) { Ingredient.of(ModItems.STEEL_INGOT.get()) },
+        ResourceLocation.tryBuild(Overcharge.ID, "steel"), listOf(Tiers.DIAMOND), listOf(Tiers.NETHERITE)
     )
     var TITANIUM: Tier = TierSortingRegistry.registerTier(
-        ForgeTier(6, 4864, 14f, 12f, 30, ModTags.Blocks.NEEDS_TITANIUM_TOOL) { Ingredient.of(ModItems.TITANIUM_INGOT.get()) },
-        ResourceLocation.tryBuild(Overcharge.ID, "titanium"), listOf(), listOf()
+        ForgeTier(5, 4864, 24f, 12f, 30, ModTags.Blocks.NEEDS_TITANIUM_TOOL) { Ingredient.of(ModItems.TITANIUM_INGOT.get()) },
+        ResourceLocation.tryBuild(Overcharge.ID, "titanium"), listOf(Tiers.NETHERITE), listOf()
+    )
+    var SYNTHETIC: Tier = TierSortingRegistry.registerTier(
+        ForgeTier(6, 8192, 32f, 16f, 30, ModTags.Blocks.NEEDS_SYNTHETIC_TOOL) { Ingredient.of(ModItems.TITANIUM_INGOT.get()) },
+        ResourceLocation.tryBuild(Overcharge.ID, "synthetic"), listOf(TITANIUM), listOf()
     )
     var OVERCHARGE: Tier = TierSortingRegistry.registerTier(
         ForgeTier(6, 1, 64f, 16f, 30, ModTags.Blocks.NEEDS_OVERCHARGE_TOOL) { Ingredient.of() },
-        ResourceLocation.tryBuild(Overcharge.ID, "overcharge"), listOf(), listOf()
+        ResourceLocation.tryBuild(Overcharge.ID, "overcharge"), listOf(SYNTHETIC), listOf()
     )
 }
