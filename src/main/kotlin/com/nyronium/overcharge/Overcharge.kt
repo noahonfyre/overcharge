@@ -4,6 +4,7 @@ import com.nyronium.overcharge.content.block.electric_smelter.ElectricSmelterScr
 import com.nyronium.overcharge.networking.NetworkHandler
 import com.nyronium.overcharge.registry.ModBlockEntities
 import com.nyronium.overcharge.registry.ModBlocks
+import com.nyronium.overcharge.registry.ModEffects
 import com.nyronium.overcharge.registry.ModFluidProperties
 import com.nyronium.overcharge.registry.ModFluids
 import com.nyronium.overcharge.registry.ModItems
@@ -27,11 +28,12 @@ import java.util.UUID
 object Overcharge {
     const val ID = "overcharge"
     const val NAME = "Overcharge"
-    const val COLOR = 0xD58EF3
+    const val COLOR = 0x67E68F
     val LOGGER: Logger = LogManager.getLogger(ID)
 
     val SPRINTING = mutableMapOf<UUID, Boolean>()
     val JUMPING = mutableMapOf<UUID, Boolean>()
+    val FLIGHT_ENABLED = mutableMapOf<UUID, Boolean>()
 
     init {
         LOGGER.log(Level.INFO, "Overcharging...")
@@ -45,6 +47,7 @@ object Overcharge {
         ModFluidProperties.FLUID_PROPERTIES.register(MOD_BUS)
         ModFluids.FLUIDS.register(MOD_BUS)
         ModMenuTypes.MENUS.register(MOD_BUS)
+        ModEffects.EFFECTS.register(MOD_BUS)
 
         runForDist(
             clientTarget = {
