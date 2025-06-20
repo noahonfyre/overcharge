@@ -1,11 +1,13 @@
 package com.nyronium.overcharge.infrastructure.datagen
 
 import com.nyronium.overcharge.Overcharge
+import com.nyronium.overcharge.content.item.ModArmorMaterials
 import com.nyronium.overcharge.registry.ModBlocks
 import com.nyronium.overcharge.registry.ModItems
 import net.minecraft.data.PackOutput
 import net.minecraft.data.recipes.*
 import net.minecraft.resources.ResourceLocation
+import net.minecraft.world.item.ArmorMaterial
 import net.minecraft.world.item.Item
 import net.minecraft.world.item.Items
 import net.minecraft.world.item.crafting.AbstractCookingRecipe
@@ -15,7 +17,7 @@ import net.minecraft.world.level.ItemLike
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder
 import java.util.function.Consumer
 
-open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), IConditionBuilder {
+class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), IConditionBuilder {
     val ALUMINUM_SMELTABLES = mutableListOf<ItemLike>(ModItems.RAW_ALUMINUM.get(), ModBlocks.ALUMINUM_ORE.get(), ModBlocks.DEEPSLATE_ALUMINUM_ORE.get())
     val LITHIUM_SMELTABLES = mutableListOf<ItemLike>(ModItems.RAW_LITHIUM.get(), ModBlocks.LITHIUM_ORE.get(), ModBlocks.DEEPSLATE_LITHIUM_ORE.get())
     val TITANIUM_SMELTABLES = mutableListOf<ItemLike>(ModItems.RAW_TITANIUM.get(), ModBlocks.TITANIUM_ORE.get(), ModBlocks.DEEPSLATE_TITANIUM_ORE.get())
@@ -34,7 +36,7 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
         oreSmeltingRecipe(pWriter, URANIUM_SMELTABLES, RecipeCategory.MISC, ModItems.URANIUM_INGOT.get(), 0.25f, 200, "uranium")
         oreBlastingRecipe(pWriter, URANIUM_SMELTABLES, RecipeCategory.MISC, ModItems.URANIUM_INGOT.get(), 0.25f, 100, "uranium")
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MODULAR_FRAME.get(), 2)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.MODULAR_FRAME.get())
             .pattern("PRP")
             .pattern("R R")
             .pattern("PRP")
@@ -52,7 +54,7 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
             .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
             .save(pWriter)
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STURDY_MODULAR_FRAME.get(), 2)
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.STURDY_MODULAR_FRAME.get())
             .pattern("PRP")
             .pattern("R R")
             .pattern("PRP")
@@ -99,6 +101,26 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
             .define('C') { ModItems.CHEMICAL_COMPOUND.get() }
             .define('P') { ModItems.STEEL_PLATE.get() }
             .define('F') { ModItems.STURDY_MODULAR_FRAME.get() }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.KYBERNETIC_CORE.get())
+            .pattern("PUP")
+            .pattern("PFP")
+            .pattern("PUP")
+            .define('U') { ModItems.UNSTABLE_DIAMOND.get() }
+            .define('P') { ModItems.STEEL_PLATE.get() }
+            .define('F') { ModItems.STURDY_MODULAR_FRAME.get() }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TRANSISTOR.get())
+            .pattern("   ")
+            .pattern("CCC")
+            .pattern("RPR")
+            .define('C') { ModItems.CHEMICAL_COMPOUND.get() }
+            .define('R') { ModItems.COPPER_ROD.get() }
+            .define('P') { ModItems.COPPER_PLATE.get() }
             .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
             .save(pWriter)
 
@@ -159,6 +181,121 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
             .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
             .save(pWriter)
 
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ARM_COMPONENT.get())
+            .pattern("SRS")
+            .pattern("F R")
+            .pattern("P S")
+            .define('P') { ModItems.HIGH_VOLTAGE_PROCESSOR.get() }
+            .define('R') { ModItems.STEEL_ROD.get() }
+            .define('F') { ModItems.STURDY_MODULAR_FRAME.get() }
+            .define('S') { ModItems.SYNTHETIC.get() }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SOLID_STATE_DRIVE.get())
+            .pattern("AFA")
+            .pattern("PFA")
+            .pattern("AFA")
+            .define('F') { ModItems.FLASH_CHIP.get() }
+            .define('P') { ModItems.LOW_VOLTAGE_PROCESSOR.get() }
+            .define('A') { ModItems.ALUMINUM_PLATE.get() }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.OVERCHARGE_CORE.get())
+            .pattern("BFB")
+            .pattern("BOB")
+            .pattern("BFB")
+            .define('B') { ModItems.BASALT_FIBER.get() }
+            .define('F') { ModItems.STURDY_MODULAR_FRAME.get() }
+            .define('O') { ModItems.OVERCHARGE.get() }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TRAY.get())
+            .pattern("   ")
+            .pattern("A A")
+            .pattern("AAA")
+            .define('A') { ModItems.ALUMINUM_PLATE.get() }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.TITANIUM_UPGRADE_SMITHING_TEMPLATE.get())
+            .pattern("BFB")
+            .pattern("BTB")
+            .pattern("BBB")
+            .define('B') { ModItems.BASALT_FIBER.get() }
+            .define('T') { ModItems.TITANIUM_INGOT.get() }
+            .define('F') { ModItems.STURDY_MODULAR_FRAME.get() }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.NEXUS.get())
+            .pattern("YYY")
+            .pattern("FCF")
+            .pattern("RPR")
+            .define('Y') { ModItems.SYNTHETIC.get() }
+            .define('F') { ModItems.BASALT_FIBER.get() }
+            .define('C') { ModItems.KYBERNETIC_CORE.get() }
+            .define('R') { ModItems.TITANIUM_ROD.get() }
+            .define('P') { ModItems.TITANIUM_PLATE.get() }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FRACTURE.get())
+            .pattern("FPF")
+            .pattern("LCL")
+            .pattern("FTF")
+            .define('F') { ModItems.BASALT_FIBER.get() }
+            .define('L') { ModItems.FLUID_TANK.get() }
+            .define('C') { ModItems.KYBERNETIC_CORE.get() }
+            .define('P') { ModItems.MICROPROCESSOR.get() }
+            .define('T') { ModItems.TURBINE.get() }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.FADED_DIAMOND.get())
+            .pattern("ERE")
+            .pattern("RUR")
+            .pattern("ERE")
+            .define('E') { Items.ECHO_SHARD }
+            .define('R') { ModItems.REFINED_RADIANCE.get() }
+            .define('U') { ModItems.UNSTABLE_DIAMOND.get() }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.SYNTHETICALLY_REINFORCED_ELYTRA.get())
+            .pattern("YBY")
+            .pattern("CXC")
+            .pattern("YBY")
+            .define('X') { Items.ELYTRA }
+            .define('Y') { ModItems.SYNTHETIC.get() }
+            .define('B') { ModItems.BASALT_FIBER.get() }
+            .define('C') { ModItems.CHEMICAL_CORE.get() }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.OVERCHARGE_BLADE.get())
+            .pattern(" P ")
+            .pattern("BCB")
+            .pattern(" X ")
+            .define('P') { ModItems.TITANIUM_PLATE.get() }
+            .define('X') { ModItems.TOOL_COMPONENT.get() }
+            .define('B') { ModItems.BASALT_FIBER.get() }
+            .define('C') { ModItems.CHEMICAL_CORE.get() }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.OVERCHARGE_HAMMER.get())
+            .pattern("PPP")
+            .pattern("PCP")
+            .pattern(" X ")
+            .define('P') { ModItems.TITANIUM_PLATE.get() }
+            .define('X') { ModItems.TOOL_COMPONENT.get() }
+            .define('C') { ModItems.CHEMICAL_CORE.get() }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.ORGANIC_COMPOUND.get(), 4)
             .requires(Items.KELP)
             .requires(Items.KELP)
@@ -173,13 +310,13 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
             .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
             .save(pWriter)
 
-        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, ModItems.ARM_COMPONENT.get())
-            .pattern("SRS")
-            .pattern("F R")
-            .pattern("  S")
-            .define('R') { ModItems.STEEL_ROD.get() }
-            .define('F') { ModItems.STURDY_MODULAR_FRAME.get() }
-            .define('S') { ModItems.SYNTHETIC.get() }
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.SILICON_DIE.get(), 6)
+            .requires(ModItems.SILICON_WAFER.get())
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, ModItems.UNSTABLE_DIE.get(), 6)
+            .requires(ModItems.UNSTABLE_WAFER.get())
             .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
             .save(pWriter)
 
@@ -203,10 +340,19 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
             ModItems.STEEL_WRENCH.get()
         )
 
+        armorSet(
+            pWriter,
+            ModArmorMaterials.STEEL,
+            ModItems.STEEL_HELMET.get(),
+            ModItems.STEEL_CHESTPLATE.get(),
+            ModItems.STEEL_LEGGINGS.get(),
+            ModItems.STEEL_BOOTS.get()
+        )
+
         upgradableToolSet(
             pWriter,
             ModItems.TITANIUM_INGOT.get(),
-            ModItems.OVERCHARGE.get(),
+            ModItems.TITANIUM_UPGRADE_SMITHING_TEMPLATE.get(),
             ModItems.STEEL_SWORD.get(),
             ModItems.STEEL_AXE.get(),
             ModItems.STEEL_PICKAXE.get(),
@@ -223,7 +369,65 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
             ModItems.TITANIUM_WRENCH.get()
         )
 
-        smithingRecipe(pWriter, ModItems.ACCUMULATOR.get(), ModItems.TITANIUM_WRENCH.get(), ModItems.SYNTHETIC.get(), ModItems.OVERCHARGE_WRENCH.get())
+        upgradableArmorSet(
+            pWriter,
+            ModArmorMaterials.TITANIUM,
+            ModItems.TITANIUM_UPGRADE_SMITHING_TEMPLATE.get(),
+            ModItems.STEEL_HELMET.get(),
+            ModItems.STEEL_CHESTPLATE.get(),
+            ModItems.STEEL_LEGGINGS.get(),
+            ModItems.STEEL_BOOTS.get(),
+            ModItems.TITANIUM_HELMET.get(),
+            ModItems.TITANIUM_CHESTPLATE.get(),
+            ModItems.TITANIUM_LEGGINGS.get(),
+            ModItems.TITANIUM_BOOTS.get(),
+        )
+
+        smithingRecipe(pWriter, ModItems.SCHEMATIC_HELMET.get(), ModItems.TITANIUM_HELMET.get(), ModItems.SYNTHETIC.get(), ModItems.OVERCHARGE_HELMET.get())
+        smithingRecipe(pWriter, ModItems.SCHEMATIC_CHESTPLATE.get(), ModItems.TITANIUM_CHESTPLATE.get(), ModItems.SYNTHETIC.get(), ModItems.OVERCHARGE_CHESTPLATE.get())
+        smithingRecipe(pWriter, ModItems.SCHEMATIC_LEGGINGS.get(), ModItems.TITANIUM_LEGGINGS.get(), ModItems.SYNTHETIC.get(), ModItems.OVERCHARGE_LEGGINGS.get())
+        smithingRecipe(pWriter, ModItems.SCHEMATIC_BOOTS.get(), ModItems.TITANIUM_BOOTS.get(), ModItems.SYNTHETIC.get(), ModItems.OVERCHARGE_BOOTS.get())
+    }
+
+    fun armorSet(pWriter: Consumer<FinishedRecipe>, material: ArmorMaterial, helmet: Item, chestplate: Item, leggings: Item, boots: Item) {
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, helmet)
+            .pattern("XXX")
+            .pattern("X X")
+            .pattern("   ")
+            .define('X') { material.repairIngredient.items[0].item }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, chestplate)
+            .pattern("X X")
+            .pattern("XXX")
+            .pattern("XXX")
+            .define('X') { material.repairIngredient.items[0].item }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, leggings)
+            .pattern("XXX")
+            .pattern("X X")
+            .pattern("X X")
+            .define('X') { material.repairIngredient.items[0].item }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+
+        ShapedRecipeBuilder.shaped(RecipeCategory.MISC, boots)
+            .pattern("   ")
+            .pattern("X X")
+            .pattern("X X")
+            .define('X') { material.repairIngredient.items[0].item }
+            .unlockedBy(getHasName(Items.AIR), has(Items.AIR))
+            .save(pWriter)
+    }
+
+    fun upgradableArmorSet(pWriter: Consumer<FinishedRecipe>, material: ArmorMaterial, template: Item, pHelmet: Item, pChestplate: Item, pLeggings: Item, pBoots: Item, sHelmet: Item, sChestplate: Item, sLeggings: Item, sBoots: Item) {
+        smithingRecipe(pWriter, template, pHelmet, material.repairIngredient.items.first().item, sHelmet)
+        smithingRecipe(pWriter, template, pChestplate, material.repairIngredient.items.first().item, sChestplate)
+        smithingRecipe(pWriter, template, pLeggings, material.repairIngredient.items.first().item, sLeggings)
+        smithingRecipe(pWriter, template, pBoots, material.repairIngredient.items.first().item, sBoots)
     }
 
     fun materialSet(pWriter: Consumer<FinishedRecipe>, ingot: Item, nugget: Item, plate: Item, rod: Item) {
@@ -349,7 +553,7 @@ open class ModRecipeProvider(pOutput: PackOutput) : RecipeProvider(pOutput), ICo
     protected fun oreCookingRecipe(pFinishedRecipeConsumer: Consumer<FinishedRecipe>, pCookingSerializer: RecipeSerializer<out AbstractCookingRecipe>, pIngredients: MutableList<ItemLike>, pCategory: RecipeCategory, pResult: ItemLike, pExperience: Float, pCookingTime: Int, pGroup: String, pRecipeName: String) {
         for (itemLike in pIngredients) {
             SimpleCookingRecipeBuilder.generic(
-                Ingredient.of(*arrayOf<ItemLike>(itemLike)),
+                Ingredient.of(*arrayOf(itemLike)),
                 pCategory,
                 pResult,
                 pExperience,
