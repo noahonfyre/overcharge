@@ -9,9 +9,8 @@ import com.nyronium.overcharge.util.TooltipHelper
 import earth.terrarium.botarium.common.energy.base.BotariumEnergyItem
 import earth.terrarium.botarium.common.energy.impl.SimpleEnergyContainer
 import earth.terrarium.botarium.common.energy.impl.WrappedItemEnergyContainer
+import net.minecraft.core.BlockPos
 import net.minecraft.network.chat.Component
-import net.minecraft.world.InteractionHand
-import net.minecraft.world.InteractionResultHolder
 import net.minecraft.world.entity.EquipmentSlot
 import net.minecraft.world.entity.LivingEntity
 import net.minecraft.world.entity.ai.attributes.Attribute
@@ -19,19 +18,22 @@ import net.minecraft.world.entity.ai.attributes.AttributeModifier
 import net.minecraft.world.entity.ai.attributes.Attributes
 import net.minecraft.world.entity.player.Player
 import net.minecraft.world.item.ItemStack
-import net.minecraft.world.item.SwordItem
+import net.minecraft.world.item.PickaxeItem
 import net.minecraft.world.item.TooltipFlag
 import net.minecraft.world.item.enchantment.Enchantment
 import net.minecraft.world.item.enchantment.EnchantmentCategory
 import net.minecraft.world.level.Level
+import net.minecraft.world.level.block.state.BlockState
 import net.minecraftforge.common.ForgeMod
+import net.minecraftforge.common.ToolAction
+import net.minecraftforge.common.ToolActions
 import kotlin.math.roundToLong
 
 
-class OverchargeBladeItem(val energyCapacity: Long, properties: Properties) : SwordItem(ModToolTiers.OVERCHARGE, -16, -4f, properties), BotariumEnergyItem<WrappedItemEnergyContainer>, ItemAttributeModifierExtension {
+class OverchargeHammerItem(val energyCapacity: Long, properties: Properties) : PickaxeItem(ModToolTiers.OVERCHARGE, -16, -4f, properties), BotariumEnergyItem<WrappedItemEnergyContainer>, ItemAttributeModifierExtension {
     private val attributeModifiers: Multimap<Attribute, AttributeModifier> = ImmutableMultimap.builder<Attribute, AttributeModifier>()
-        .put(Attributes.ATTACK_DAMAGE, AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 29.0, AttributeModifier.Operation.ADDITION))
-        .put(Attributes.ATTACK_SPEED, AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", -2.4, AttributeModifier.Operation.ADDITION))
+        .put(Attributes.ATTACK_DAMAGE, AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Tool modifier", 17.0, AttributeModifier.Operation.ADDITION))
+        .put(Attributes.ATTACK_SPEED, AttributeModifier(BASE_ATTACK_SPEED_UUID, "Tool modifier", -2.8, AttributeModifier.Operation.ADDITION))
         .put(ForgeMod.ENTITY_REACH.get(), AttributeModifier(BASE_ENTITY_INTERACTION_RANGE_ID, "Tool modifier", 3.0, AttributeModifier.Operation.ADDITION))
         .put(ForgeMod.BLOCK_REACH.get(), AttributeModifier(BASE_BLOCK_INTERACTION_RANGE_ID, "Tool modifier", 3.0, AttributeModifier.Operation.ADDITION))
         .build()
@@ -81,19 +83,18 @@ class OverchargeBladeItem(val energyCapacity: Long, properties: Properties) : Sw
         )
     }
 
-    override fun use(pLevel: Level, pPlayer: Player, pUsedHand: InteractionHand): InteractionResultHolder<ItemStack?> {
-        pPlayer.swing(pUsedHand)
-        if(pPlayer.deltaMovement.length()*20 >= 100) return super.use(pLevel, pPlayer, pUsedHand)
-        val movement = pPlayer.lookAngle.normalize().scale(5.0)
-        pPlayer.addDeltaMovement(movement)
-        return super.use(pLevel, pPlayer, pUsedHand)
+    override fun mineBlock(pStack: ItemStack, pLevel: Level, pState: BlockState, pPos: BlockPos, pMiningEntity: LivingEntity): Boolean {
+        if(getEnergyStorage(pStack).storedEnergy <= 0) return false
+
+        if(pMiningEntity !is Player) return super.mineBlock(pStack, pLevel, pState, pPos, pMiningEntity)
+        val energyUsage = (pState.getDestroySpeed(pLevel, pPos)*1000).roundToLong()
+        getEnergyStorage(pStack).internalExtract(energyUsage, false)
+        return super.mineBlock(pStack, pLevel, pState, pPos, pMiningEntity)
     }
 
-    override fun hurtEnemy(pStack: ItemStack, pTarget: LivingEntity, pAttacker: LivingEntity): Boolean {
-        val energyUsage = (pTarget.maxHealth*10).roundToLong()
-        getEnergyStorage(pStack).internalExtract(energyUsage, false)
-        return super.hurtEnemy(pStack, pTarget, pAttacker)
-    }
+    override fun canAttackBlock(pState: BlockState, pLevel: Level, pPos: BlockPos, pPlayer: Player): Boolean = getEnergyStorage(pPlayer.mainHandItem).storedEnergy > 0
+    override fun canPerformAction(stack: ItemStack, toolAction: ToolAction): Boolean = toolAction == ToolActions.DEFAULT_SWORD_ACTIONS || toolAction == ToolActions.DEFAULT_PICKAXE_ACTIONS || toolAction == ToolActions.DEFAULT_AXE_ACTIONS || toolAction == ToolActions.DEFAULT_SHOVEL_ACTIONS || toolAction == ToolActions.DEFAULT_HOE_ACTIONS
+    override fun getDestroySpeed(itemstack: ItemStack, blockstate: BlockState): Float = tier.speed
 
     override fun isDamageable(itemstack: ItemStack): Boolean = false
     override fun getDamage(itemstack: ItemStack): Int = 0
@@ -102,6 +103,6 @@ class OverchargeBladeItem(val energyCapacity: Long, properties: Properties) : Sw
     override fun getEnchantmentValue(): Int = tier.enchantmentValue
 
     override fun canApplyAtEnchantingTable(stack: ItemStack, enchantment: Enchantment): Boolean {
-        return enchantment.category == EnchantmentCategory.WEAPON || super.canApplyAtEnchantingTable(stack, enchantment)
+        return enchantment.category == EnchantmentCategory.DIGGER || super.canApplyAtEnchantingTable(stack, enchantment)
     }
 }
