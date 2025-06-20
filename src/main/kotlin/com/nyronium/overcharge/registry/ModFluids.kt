@@ -36,4 +36,7 @@ object ModFluids {
 
     val PHOTORESIST: RegistryObject<Fluid> = FLUIDS.register("photoresist") { BotariumSourceFluid(ModFluidProperties.PHOTORESIST) }
     val FLOWING_PHOTORESIST: RegistryObject<Fluid> = FLUIDS.register("flowing_photoresist") { BotariumFlowingFluid(ModFluidProperties.PHOTORESIST) }
+
+    val HYPERMESH: RegistryObject<Fluid> = FLUIDS.register("hypermesh") { BotariumSourceFluid(ModFluidProperties.HYPERMESH) }
+    val FLOWING_HYPERMESH: RegistryObject<Fluid> = FLUIDS.register("flowing_hypermesh") { BotariumFlowingFluid(ModFluidProperties.HYPERMESH) }
 }

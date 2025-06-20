@@ -42,6 +42,7 @@ object ModBlocks {
     val VOLATILE_SOLUTION: RegistryObject<BotariumLiquidBlock> = BLOCKS.register("volatile_solution") { BotariumLiquidBlock(ModFluidProperties.VOLATILE_SOLUTION, BlockBehaviour.Properties.copy(Blocks.WATER)) }
     val DESTABILIZED_SILICON: RegistryObject<BotariumLiquidBlock> = BLOCKS.register("destabilized_silicon") { BotariumLiquidBlock(ModFluidProperties.DESTABILIZED_SILICON, BlockBehaviour.Properties.copy(Blocks.WATER)) }
     val PHOTORESIST: RegistryObject<BotariumLiquidBlock> = BLOCKS.register("photoresist") { BotariumLiquidBlock(ModFluidProperties.PHOTORESIST, BlockBehaviour.Properties.copy(Blocks.WATER)) }
+    val HYPERMESH: RegistryObject<BotariumLiquidBlock> = BLOCKS.register("hypermesh") { BotariumLiquidBlock(ModFluidProperties.HYPERMESH, BlockBehaviour.Properties.copy(Blocks.WATER)) }
 
     val DEPOT = registerBlock("depot") { Block(BlockBehaviour.Properties.of().strength(5f).requiresCorrectToolForDrops().noOcclusion()) }
     val ELECTRIC_SMELTER = registerBlock("electric_smelter") { ElectricSmelterBlock(BlockBehaviour.Properties.of().strength(5f).requiresCorrectToolForDrops().noOcclusion()) }

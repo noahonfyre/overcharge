@@ -113,4 +113,17 @@ object ModFluidProperties {
             .dropOff(1)
             .canConvertToSource(false)
     )
+
+    val HYPERMESH: FluidData = FLUID_PROPERTIES.register("hypermesh",
+        FluidProperties.create()
+            .still(ResourceLocation.tryBuild(Overcharge.ID, "block/hypermesh_still"))
+            .flowing(ResourceLocation.tryBuild(Overcharge.ID, "block/hypermesh_flow"))
+            .overlay(ResourceLocation.parse("block/water_overlay"))
+            .screenOverlay(ResourceLocation.parse("textures/misc/underwater.png"))
+            .viscosity(Int.MAX_VALUE)
+            .density(Int.MAX_VALUE)
+            .temperature(0)
+            .dropOff(1)
+            .canConvertToSource(false)
+    )
 }
