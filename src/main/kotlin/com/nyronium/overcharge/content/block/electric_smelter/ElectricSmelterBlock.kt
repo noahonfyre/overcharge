@@ -1,11 +1,8 @@
 package com.nyronium.overcharge.content.block.electric_smelter
 
 import com.nyronium.overcharge.registry.ModBlockEntities
-import jdk.jfr.internal.periodic.PeriodicEvents.setChanged
 import net.minecraft.core.BlockPos
-import net.minecraft.server.level.ServerLevel
 import net.minecraft.server.level.ServerPlayer
-import net.minecraft.util.RandomSource
 import net.minecraft.world.InteractionHand
 import net.minecraft.world.InteractionResult
 import net.minecraft.world.entity.player.Player
@@ -33,6 +30,7 @@ class ElectricSmelterBlock(pProperties: Properties) : BaseEntityBlock(pPropertie
         return box(0.0, 0.0, 0.0, 16.0, 27.0, 16.0)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun getRenderShape(pState: BlockState): RenderShape {
         return RenderShape.MODEL
     }
