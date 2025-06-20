@@ -6,7 +6,6 @@ import com.nyronium.overcharge.networking.NetworkHandler
 import com.nyronium.overcharge.networking.clientbound.TesseractActivationPacket
 import com.nyronium.overcharge.registry.ModItems
 import com.nyronium.overcharge.util.BaseUtils
-import com.nyronium.overcharge.util.EnergyUtils
 import net.minecraft.network.chat.Component
 import net.minecraft.server.level.ServerPlayer
 import net.minecraft.world.effect.MobEffectInstance
@@ -50,8 +49,6 @@ object ServerModEvents {
 
     @SubscribeEvent
     fun onLivingHurt(event: LivingHurtEvent) {
-        event.entity.sendSystemMessage(Component.literal("${event.amount} ${event.source}"))
-
         if(event.entity !is Player) return
         val player = event.entity as ServerPlayer
 
@@ -65,7 +62,7 @@ object ServerModEvents {
                 if(item.item == ModItems.TESSERACT.get()) {
                     val tesseractItem = item.item as TesseractItem
                     if(tesseractItem.getEnergyStorage(item).storedEnergy >= 500_000) {
-                        EnergyUtils.consume(player, player.inventory.items, item, player.inventory.findSlotMatchingItem(item), 500_000)
+                        tesseractItem.getEnergyStorage(item).internalExtract(500_000, false)
                     } else return
 
                     NetworkHandler.CHANNEL.send(
