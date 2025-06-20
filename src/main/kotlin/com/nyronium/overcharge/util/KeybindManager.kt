@@ -15,15 +15,21 @@ object KeybindManager {
         return Overcharge.JUMPING.getOrDefault(player.uuid, false)
     }
 
+    fun flightEnabled(player: Player): Boolean {
+        return Overcharge.FLIGHT_ENABLED.getOrDefault(player.uuid, false)
+    }
+
     fun set(uuid: UUID, category: KeyCategory, value: Boolean) {
         when (category) {
             KeyCategory.JUMPING -> { Overcharge.JUMPING[uuid] = value }
             KeyCategory.SPRINTING -> { Overcharge.SPRINTING[uuid] = value }
+            KeyCategory.FLIGHT -> { Overcharge.FLIGHT_ENABLED[uuid] = value }
         }
     }
 
     enum class KeyCategory {
         SPRINTING,
-        JUMPING
+        JUMPING,
+        FLIGHT
     }
 }
