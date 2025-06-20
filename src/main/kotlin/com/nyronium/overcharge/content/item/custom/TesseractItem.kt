@@ -1,7 +1,6 @@
 package com.nyronium.overcharge.content.item.custom
 
 import com.nyronium.overcharge.Overcharge
-import com.nyronium.overcharge.util.EnergyUtils
 import com.nyronium.overcharge.util.TooltipHelper
 import earth.terrarium.botarium.common.energy.base.BotariumEnergyItem
 import earth.terrarium.botarium.common.energy.impl.SimpleEnergyContainer
@@ -68,7 +67,7 @@ class TesseractItem(properties: Properties, private val maxEnergy: Long) : Item(
         if(getEnergyStorage(pStack).storedEnergy >= 0) {
             if(getMode(pStack) == Mode.OFF) return
             pEntity.addEffect(getMode(pStack).effect!!)
-            EnergyUtils.consume(pEntity, pEntity.inventory.items, pStack, pSlotId, 5)
+            getEnergyStorage(pStack).internalExtract(5, false)
         }
     }
 
