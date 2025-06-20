@@ -64,7 +64,7 @@ object ModBiomeModifiers {
     private fun registerKey(name: String): ResourceKey<BiomeModifier> {
         return ResourceKey.create(
             ForgeRegistries.Keys.BIOME_MODIFIERS,
-            ResourceLocation(Overcharge.ID, name)
+            ResourceLocation.fromNamespaceAndPath(Overcharge.ID, name)
         )
     }
 }

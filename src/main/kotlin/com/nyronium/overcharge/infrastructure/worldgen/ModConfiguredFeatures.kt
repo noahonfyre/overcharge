@@ -82,7 +82,7 @@ object ModConfiguredFeatures {
     fun registerKey(name: String): ResourceKey<ConfiguredFeature<*, *>> {
         return ResourceKey.create(
             Registries.CONFIGURED_FEATURE,
-            ResourceLocation(Overcharge.ID, name)
+            ResourceLocation.fromNamespaceAndPath(Overcharge.ID, name)
         )
     }
 

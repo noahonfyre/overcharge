@@ -55,8 +55,8 @@ object ModPlacedFeatures {
             TITANIUM_ORE_PLACED_KEY,
             configuredFeatures.getOrThrow(ModConfiguredFeatures.TITANIUM_ORE_KEY),
             ModOrePlacement.commonOrePlacement(
-                2,
-                HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(319))
+                1,
+                HeightRangePlacement.uniform(VerticalAnchor.absolute(-64), VerticalAnchor.absolute(32))
             )
         )
         register(
@@ -72,7 +72,7 @@ object ModPlacedFeatures {
 
 
     private fun registerKey(name: String): ResourceKey<PlacedFeature> {
-        return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation(Overcharge.ID, name))
+        return ResourceKey.create(Registries.PLACED_FEATURE, ResourceLocation.fromNamespaceAndPath(Overcharge.ID, name))
     }
 
     private fun register(
