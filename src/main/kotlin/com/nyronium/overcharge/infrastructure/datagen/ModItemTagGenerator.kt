@@ -25,13 +25,18 @@ class ModItemTagGenerator(
             .add(ModItems.NEXUS.get())
 
         tag(ModTags.Items.CURIO_BACK_SLOT)
+            .add(ModItems.EXO.get())
 
         tag(ModTags.Items.CURIO_HANDS_SLOT)
             .add(ModItems.TAURUS.get())
 
         tag(ModTags.Items.CURIO_BODY_SLOT)
 
+        tag(ModTags.Items.CURIO_BELT_SLOT)
+
         tag(ModTags.Items.CURIO_HEAD_SLOT)
             .add(ModItems.NIAGARA.get())
+
+        tag(ModTags.Items.CURIO_CHARM_SLOT)
     }
 }

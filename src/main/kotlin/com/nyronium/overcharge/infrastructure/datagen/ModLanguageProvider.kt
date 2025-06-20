@@ -8,11 +8,16 @@ import com.nyronium.overcharge.registry.ModKeyBindings
 import earth.terrarium.botarium.common.registry.fluid.BotariumLiquidBlock
 import net.minecraft.data.PackOutput
 import net.minecraftforge.common.data.LanguageProvider
+import java.util.Locale
+import java.util.Locale.getDefault
 
 class ModLanguageProvider(packOutput: PackOutput) : LanguageProvider(packOutput, Overcharge.ID, "en_us") {
     override fun addTranslations() {
         add(ModKeyBindings.KEY_CATEGORY_OVERCHARGE, "Overcharge")
-        add(ModKeyBindings.KEY_TOGGLE_FLIGHT, "Toggle Flight")
+        add(ModKeyBindings.KEY_FLIGHT, "Toggle Flight")
+        add(ModKeyBindings.KEY_AUTOPILOT, "Autopilot")
+        add(ModKeyBindings.KEY_LEVEL_HOLD, "LVL HLD")
+        add(ModKeyBindings.KEY_HEADING_SELECT, "HDG SELECT")
 
         for (item in ModItems.ITEMS.entries) {
             val id = item.id ?: continue
@@ -33,6 +38,6 @@ class ModLanguageProvider(packOutput: PackOutput) : LanguageProvider(packOutput,
     }
 
     private fun formatTranslation(id: String): String {
-        return id.split("_").joinToString(" ") { it.capitalize() }
+        return id.split("_").joinToString(" ") { it -> it.replaceFirstChar { if (it.isLowerCase()) it.titlecase(getDefault()) else it.toString() } }
     }
 }
