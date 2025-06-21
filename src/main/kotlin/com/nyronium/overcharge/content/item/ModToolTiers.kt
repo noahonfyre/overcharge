@@ -27,12 +27,8 @@ object ModToolTiers {
         ForgeTier(5, 4864, 24f, 12f, 30, ModTags.Blocks.NEEDS_TITANIUM_TOOL) { Ingredient.of(ModItems.TITANIUM_INGOT.get()) },
         ResourceLocation.tryBuild(Overcharge.ID, "titanium"), listOf(Tiers.NETHERITE), listOf()
     )
-    var SYNTHETIC: Tier = TierSortingRegistry.registerTier(
-        ForgeTier(6, 8192, 32f, 16f, 30, ModTags.Blocks.NEEDS_SYNTHETIC_TOOL) { Ingredient.of(ModItems.TITANIUM_INGOT.get()) },
-        ResourceLocation.tryBuild(Overcharge.ID, "synthetic"), listOf(TITANIUM), listOf()
-    )
     var OVERCHARGE: Tier = TierSortingRegistry.registerTier(
         ForgeTier(6, 1, 64f, 16f, 30, ModTags.Blocks.NEEDS_OVERCHARGE_TOOL) { Ingredient.of() },
-        ResourceLocation.tryBuild(Overcharge.ID, "overcharge"), listOf(SYNTHETIC), listOf()
+        ResourceLocation.tryBuild(Overcharge.ID, "overcharge"), listOf(TITANIUM), listOf()
     )
 }
